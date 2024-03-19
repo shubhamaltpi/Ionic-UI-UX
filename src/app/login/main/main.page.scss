@@ -1,0 +1,16 @@
+ion-tabs {
+  ion-tab-button {
+    font-size: .8rem;
+    ion-icon {
+      height: 1.4rem;
+    }
+  }
+}
+
+ion-toggle {
+  height: 1.4rem;
+  --handle-background-checked: #1eff00;
+  --handle-background: red;
+  --track-background: rgb(255, 130, 130);
+  --track-background-checked: #94ff00;
+}

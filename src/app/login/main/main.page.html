@@ -6,24 +6,24 @@
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="order">
       <ion-icon
-        [name]="selected == 'order' ? 'cart' : 'cart-outline'"
+        [name]="selected === 'order' ? 'cart' : 'cart-outline'"
       ></ion-icon>
       orders
     </ion-tab-button>
     <ion-tab-button tab="profile">
       <ion-icon
-        [name]="selected == 'profile' ? 'happy' : 'happy-outline'"
+        [name]="selected === 'profile' ? 'happy' : 'happy-outline'"
       ></ion-icon>
       profile
     </ion-tab-button>
     <ion-tab-button tab="support">
       <ion-icon
-        [name]="selected == 'support' ? 'chatbubble-ellipses' : 'chatbubble-ellipses-outline'"
+        [name]="selected === 'support' ? 'chatbubble-ellipses' : 'chatbubble-ellipses-outline'"
       ></ion-icon>
       support
     </ion-tab-button>
     <ion-tab-button>
-      <ion-toggle></ion-toggle>
+      <ion-toggle mode="md"></ion-toggle>
       <span class="status">status</span>
     </ion-tab-button>
   </ion-tab-bar>
