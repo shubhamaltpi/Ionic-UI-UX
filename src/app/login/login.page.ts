@@ -10,6 +10,7 @@ export class LoginPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    throw new Error('Hey')
   }
 
 }

@@ -11,9 +11,9 @@ const routes: Routes = [
     path: '',
     component: MainPage,
     children: [
-      { path: '', redirectTo: 'order', pathMatch: 'full' },
-      { path: 'order', component: OrdersComponent },
+      { path: '', redirectTo: 'profile', pathMatch: 'full' },
       { path: 'profile', component: ProfileComponent },
+      { path: 'order', component: OrdersComponent },
       { path: 'support', component: SupportComponent },
     ],
   },
@@ -23,4 +23,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class MainPageRoutingModule {}
+export class MainPageRoutingModule { }

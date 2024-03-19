@@ -1,3 +1,113 @@
-<p>
-  profile works!
-</p>
+<ion-header class="ion-no-border" mode="md">
+  <ion-toolbar>
+    <ion-title>Orders</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="'../../setting'">
+        <ion-icon name="settings-outline" size="large"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon name="notifications-outline" size="large"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon name="help-circle-outline" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="profile-card">
+    <ion-avatar>
+      <img src="https://avatars.githubusercontent.com/u/78205495?v=4" alt="" />
+    </ion-avatar>
+
+    <div class="ratings">
+      <ion-text>Prashant Sawant</ion-text>
+      <div>
+        <ion-icon name="star"></ion-icon>
+        <span>4.0</span>
+        <ion-icon name="help-circle-outline"></ion-icon>
+      </div>
+    </div>
+  </div>
+
+  <div class="up-btn">
+    <ion-button>
+      <ion-icon name="camera-outline"></ion-icon>
+      <p>Selfie</p>
+    </ion-button>
+    <ion-button>
+      <ion-icon name="gift-outline"></ion-icon><br />
+      <p>Bonus & Rewards</p>
+    </ion-button>
+  </div>
+
+  <div class="down-btn align">
+    <ion-button>
+      <ion-icon name="id-card-outline"></ion-icon>
+      <p>ID</p>
+    </ion-button>
+    <ion-button>
+      <ion-icon name="wallet-outline"></ion-icon>
+      <p>Wallets</p>
+    </ion-button>
+    <ion-button>
+      <ion-icon name="stats-chart-outline"></ion-icon>
+      <p>Statistics</p>
+    </ion-button>
+  </div>
+
+  <ion-card class="wallet">
+    <ion-card-header>
+      <div class="flex">
+        <ion-card-title>Today</ion-card-title>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </div>
+      <ion-card-subtitle>earnings</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <h1>$ 0</h1>
+      <span>points</span>
+      <h1><ion-icon name="star-half-outline"></ion-icon> 0</h1>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-item lines="none" class="list">
+    <ion-label>Completed orders</ion-label>
+    <ion-text slot="end">0</ion-text>
+  </ion-item>
+  <ion-item lines="none" class="list">
+    <ion-label>Delivered on time</ion-label>
+    <ion-text slot="end">0</ion-text>
+  </ion-item>
+  <ion-item lines="none" class="list">
+    <ion-label>Abandoned orders</ion-label>
+    <ion-text slot="end">0</ion-text>
+  </ion-item>
+
+  <ion-card class="refer">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path
+        fill="#fff"
+        fill-opacity="1"
+        d="M0,256L60,229.3C120,203,240,149,360,149.3C480,149,600,203,720,192C840,181,960,107,1080,101.3C1200,96,1320,160,1380,192L1440,224L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
+      ></path>
+    </svg>
+    <ion-card-header>
+      <ion-card-title>Invite friends to get $201</ion-card-title>
+      <ion-card-subtitle>Refer a Friend</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p class="desc">
+        Invite friends to Google Pay and get $201 when your friend sends their
+        first payment. They get 21!
+      </p>
+
+      <p>
+        Copy your code <span> vq5zf2x </span>
+        <ion-icon name="copy-outline"></ion-icon>
+      </p>
+      <ion-button shape="round" fill="outline" size="small">Round</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
