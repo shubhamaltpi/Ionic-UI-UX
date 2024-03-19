@@ -1,0 +1,23 @@
+ion-list {
+  ion-back-button {
+    display: block;
+  }
+
+  ion-list-header {
+    padding: 0;
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+
+    ion-icon {
+      margin-right: 0.5rem;
+    }
+  }
+
+  ion-item {
+    margin-bottom: 0.5rem;
+    ion-icon {
+      margin-right: 1rem;
+    }
+  }
+}
