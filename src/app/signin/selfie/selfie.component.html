@@ -1,7 +1,8 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button [routerLink]="'../'"><ion-icon name="arrow-back"></ion-icon></ion-button>
+      <!-- <ion-button [routerLink]="'../'"><ion-icon name="arrow-back"></ion-icon></ion-button> -->
+      <ion-back-button mode="ios"></ion-back-button>
     </ion-buttons>
     <ion-title>Selfie Verification</ion-title>
   </ion-toolbar>
@@ -28,7 +29,7 @@
     </div>
     <div class="action">
       <button class="retake-btn">Retake</button>
-      <button class="next-btn">Next</button>
+      <button class="next-btn" (click)="handleSelfie()">Next</button>
     </div>
   </div>
 </ion-content>

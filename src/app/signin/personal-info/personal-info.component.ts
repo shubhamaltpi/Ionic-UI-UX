@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-personal-info',
@@ -8,10 +8,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class PersonalInfoComponent {
 
-  constructor(private route: Router, private router: ActivatedRoute) { }
+  constructor(private router: Router) { }
 
 
   handlePersonalInfo() {
-    this.route.navigate(['signin/selfie'])
+    this.router.navigate(['signin/selfie'])
   }
 }

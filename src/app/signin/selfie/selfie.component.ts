@@ -1,14 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-selfie',
   templateUrl: './selfie.component.html',
   styleUrls: ['./selfie.component.scss'],
 })
-export class SelfieComponent  implements OnInit {
+export class SelfieComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('Selfie');
+  }
 
+  handleSelfie() {
+    this.router.navigate(['signin/aadhar'])
+  }
 }
