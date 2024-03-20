@@ -1,14 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-pan',
   templateUrl: './pan.component.html',
   styleUrls: ['./pan.component.scss'],
 })
-export class PanComponent  implements OnInit {
+export class PanComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('PAN CARD');
 
+  }
+  handlePan() {
+    this.router.navigate(['../main'], { relativeTo: this.route.parent })
+  }
 }
