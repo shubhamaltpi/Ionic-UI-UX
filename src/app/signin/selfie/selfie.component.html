@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="'../'"><ion-icon name="arrow-back"></ion-icon></ion-button>
+    </ion-buttons>
+    <ion-title>Selfie Verification</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="wrapper">
+    <h2>Upload Selfie</h2>
+    <div class="img-frame">
+      <img src="https://avatars.githubusercontent.com/u/78205495?v=4" alt="" />
+    </div>
+    <p class="instruction">
+      <ion-icon name="checkmark-circle"></ion-icon> Good lighting on your face
+    </p>
+    <p class="instruction">
+      <ion-icon name="checkmark-circle"></ion-icon> Look into the camera
+    </p>
+    <ion-item>
+      <label for="selfie">Upload Selfie</label>
+      <input type="file" id="selfie" />
+    </ion-item>
+    <div class="img-frame">
+      <img src="https://avatars.githubusercontent.com/u/78205495?v=4" alt="" />
+    </div>
+    <div class="action">
+      <button class="retake-btn">Retake</button>
+      <button class="next-btn">Next</button>
+    </div>
+  </div>
+</ion-content>

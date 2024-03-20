@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Personal Info</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollY]="false">
+  <form>
+    <ion-item>
+      <ion-input
+        label="First Name"
+        label-placement="floating"
+        placeholder="First Name"
+      ></ion-input>
+      <ion-input
+        label="Last Name"
+        labelPlacement="floating"
+        placeholder="Enter Last Name"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        label="Mobile No."
+        label-placement="floating"
+        placeholder="mobile No."
+        type="number"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        label="Email"
+        label-placement="floating"
+        placeholder="Enter your email"
+        type="number"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        label="Aadhar Card No"
+        label-placement="floating"
+        placeholder="Enter your Aadhar Card No."
+        type="number"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-textarea
+        label="Address"
+        labelPlacement="floating"
+        fill="outline"
+        placeholder="Enter your Address"
+      ></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        label="Pincode"
+        label-placement="floating"
+        placeholder="Enter your Pincode"
+        type="number"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        label="State"
+        label-placement="floating"
+        placeholder="Enter your State"
+      ></ion-input>
+      <ion-input
+        label="Country"
+        label-placement="floating"
+        placeholder="Enter your Country"
+      ></ion-input>
+    </ion-item>
+    <ion-item lines="none" class="action">
+      <ion-button slot="end">Reset</ion-button>
+      <ion-button slot="end" type="button" (click)="handlePersonalInfo()"
+        >Next</ion-button
+      >
+    </ion-item>
+  </form>
+</ion-content>
