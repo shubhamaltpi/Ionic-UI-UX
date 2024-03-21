@@ -24,13 +24,13 @@
     </p>
     <ion-item>
       <label for="aadhar">Upload Pan Card</label>
-      <input type="file" id="aadhar" />
+      <input type="file" id="aadhar" (change)="onPanSelected($event)" />
     </ion-item>
     <div class="img-frame">
       <img src="https://avatars.githubusercontent.com/u/78205495?v=4" alt="" />
     </div>
     <div class="action">
-      <button class="retake-btn">Retake</button>
+      <button class="retake-btn" (click)="handleRetake">Retake</button>
       <button class="next-btn" (click)="handlePan()">Next</button>
     </div>
   </div>

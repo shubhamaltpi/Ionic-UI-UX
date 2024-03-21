@@ -11,12 +11,14 @@
         label="First Name"
         label-placement="floating"
         placeholder="First Name"
+        name="firstName"
         [(ngModel)]="personalData.firstName"
       ></ion-input>
       <ion-input
         label="Last Name"
         labelPlacement="floating"
         placeholder="Enter Last Name"
+        name="lastName"
         [(ngModel)]="personalData.lastName"
       ></ion-input>
     </ion-item>
@@ -26,6 +28,7 @@
         label="Mobile No."
         label-placement="floating"
         placeholder="mobile No."
+        name="mobile"
         [(ngModel)]="personalData.mobile"
       ></ion-input>
     </ion-item>
@@ -34,6 +37,7 @@
         label="Email"
         label-placement="floating"
         placeholder="Enter your email"
+        name="email"
         [(ngModel)]="personalData.email"
       ></ion-input>
     </ion-item>
@@ -43,6 +47,7 @@
         label="Aadhar Card No"
         label-placement="floating"
         placeholder="Enter your Aadhar Card No."
+        name="aadharNo"
         [(ngModel)]="personalData.aadharNo"
       ></ion-input>
     </ion-item>
@@ -52,6 +57,7 @@
         labelPlacement="floating"
         fill="outline"
         placeholder="Enter your Address"
+        name="address"
         [(ngModel)]="personalData.address"
       ></ion-textarea>
     </ion-item>
@@ -61,6 +67,7 @@
         label="Pincode"
         label-placement="floating"
         placeholder="Enter your Pincode"
+        name="pincode"
         [(ngModel)]="personalData.pinCode"
       ></ion-input>
     </ion-item>
@@ -69,17 +76,19 @@
         label="State"
         label-placement="floating"
         placeholder="Enter your State"
+        name="state"
         [(ngModel)]="personalData.state"
       ></ion-input>
       <ion-input
         label="Country"
         label-placement="floating"
         placeholder="Enter your Country"
+        name="country"
         [(ngModel)]="personalData.country"
       ></ion-input>
     </ion-item>
     <ion-item lines="none" class="action">
-      <ion-button slot="end">Reset</ion-button>
+      <ion-button slot="end" (click)="handleRetake()">Reset</ion-button>
       <ion-button slot="end" type="button" (click)="handlePersonalInfo()"
         >Next</ion-button
       >
