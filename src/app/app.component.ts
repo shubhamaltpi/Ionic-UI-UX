@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { Capacitor } from '@capacitor/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Geolocation } from '@capacitor/geolocation'
+import { GeoLocationAPIKEY } from 'src/app/appConfig/appConfig'
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { Geolocation } from '@capacitor/geolocation'
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(private http: HttpClient) { }
+  constructor(@Inject(GeoLocationAPIKEY) public API_KEY: string, private http: HttpClient) { }
 
   ngOnInit() {
     this.requestPermission()
@@ -19,11 +19,10 @@ export class AppComponent implements OnInit {
     const havePermission = await Geolocation.checkPermissions()
     if (havePermission.location == 'granted') {
       const { latitude, longitude } = await this.getCoordinates()
-
+      this.getLocation({ lat: latitude, long: longitude }).subscribe(res => console.log(res))
     } else {
       await Geolocation.requestPermissions()
     }
-
   }
 
   async getCoordinates() {
@@ -31,7 +30,7 @@ export class AppComponent implements OnInit {
     return { latitude, longitude }
   }
 
-  async getLocation({ lat, long }) {
-    // await https://www.feroeg.com/address?lat=19.0748&lon=72.8856
+  getLocation({ lat, long }) {
+    return this.http.get(`https://api.geocodify.com/v2/reverse?api_key=${this.API_KEY}&lat=${lat}&lng=${long}`)
   }
 }

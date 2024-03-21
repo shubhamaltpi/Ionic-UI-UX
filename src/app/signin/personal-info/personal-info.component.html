@@ -11,19 +11,22 @@
         label="First Name"
         label-placement="floating"
         placeholder="First Name"
+        [(ngModel)]="personalData.firstName"
       ></ion-input>
       <ion-input
         label="Last Name"
         labelPlacement="floating"
         placeholder="Enter Last Name"
+        [(ngModel)]="personalData.lastName"
       ></ion-input>
     </ion-item>
     <ion-item>
       <ion-input
+        type="number"
         label="Mobile No."
         label-placement="floating"
         placeholder="mobile No."
-        type="number"
+        [(ngModel)]="personalData.mobile"
       ></ion-input>
     </ion-item>
     <ion-item>
@@ -31,15 +34,16 @@
         label="Email"
         label-placement="floating"
         placeholder="Enter your email"
-        type="number"
+        [(ngModel)]="personalData.email"
       ></ion-input>
     </ion-item>
     <ion-item>
       <ion-input
+        type="number"
         label="Aadhar Card No"
         label-placement="floating"
         placeholder="Enter your Aadhar Card No."
-        type="number"
+        [(ngModel)]="personalData.aadharNo"
       ></ion-input>
     </ion-item>
     <ion-item>
@@ -48,14 +52,16 @@
         labelPlacement="floating"
         fill="outline"
         placeholder="Enter your Address"
+        [(ngModel)]="personalData.address"
       ></ion-textarea>
     </ion-item>
     <ion-item>
       <ion-input
+        type="number"
         label="Pincode"
         label-placement="floating"
         placeholder="Enter your Pincode"
-        type="number"
+        [(ngModel)]="personalData.pinCode"
       ></ion-input>
     </ion-item>
     <ion-item>
@@ -63,11 +69,13 @@
         label="State"
         label-placement="floating"
         placeholder="Enter your State"
+        [(ngModel)]="personalData.state"
       ></ion-input>
       <ion-input
         label="Country"
         label-placement="floating"
         placeholder="Enter your Country"
+        [(ngModel)]="personalData.country"
       ></ion-input>
     </ion-item>
     <ion-item lines="none" class="action">

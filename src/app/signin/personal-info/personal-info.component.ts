@@ -7,9 +7,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./personal-info.component.scss'],
 })
 export class PersonalInfoComponent {
-
+  personalData = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    mobile: '',
+    aadharNo: '',
+    address: '',
+    pinCode: '',
+    state: '',
+    country: ''
+  }
   constructor(private router: Router) { }
-
 
   handlePersonalInfo() {
     this.router.navigate(['signin/selfie'])
