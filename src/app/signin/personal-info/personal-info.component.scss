@@ -1,0 +1,12 @@
+form {
+    margin: .5rem;
+}
+
+.action {
+    ion-button {
+        --padding-top: .5rem;
+        --padding-bottom: .5rem;
+        --padding-start: 1rem;
+        --padding-end: 1rem;
+    }
+}

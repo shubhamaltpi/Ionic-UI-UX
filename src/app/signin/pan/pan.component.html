@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- <ion-button [routerLink]="'../'"
+        ><ion-icon name="arrow-back"></ion-icon
+      ></ion-button> -->
+      <ion-back-button mode="ios"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Pan Card Verification</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="wrapper">
+    <h2>Upload Pan Card Photo</h2>
+    <div class="img-frame">
+      <img src="../../../assets/images/pan-card.webp" alt="" />
+    </div>
+    <p class="instruction">
+      <ion-icon name="checkmark-circle"></ion-icon> Clear Photo
+    </p>
+    <p class="instruction">
+      <ion-icon name="checkmark-circle"></ion-icon> Only front photo
+    </p>
+    <ion-item>
+      <label for="aadhar">Upload Pan Card</label>
+      <input type="file" id="aadhar" (change)="onPanSelected($event)" />
+    </ion-item>
+    <div class="img-frame">
+      <img src="https://avatars.githubusercontent.com/u/78205495?v=4" alt="" />
+    </div>
+    <div class="action">
+      <button class="retake-btn" (click)="handleRetake">Retake</button>
+      <button class="next-btn" (click)="handlePan()">Next</button>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- <ion-button [routerLink]="'../'"
+        ><ion-icon name="arrow-back"></ion-icon
+      ></ion-button> -->
+      <ion-back-button mode="ios"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Aadhar Verification</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="wrapper">
+    <h2>Upload Aadhar Photo</h2>
+
+    <p class="instruction">
+      <ion-icon name="checkmark-circle"></ion-icon> Clear Photo
+    </p>
+    <p class="instruction">
+      <ion-icon name="checkmark-circle"></ion-icon> Both front and back
+    </p>
+    <ion-item>
+      <label for="aadhar">Upload Aadhar Front</label>
+      <input type="file" id="aadhar" multiple name="aadhar" (change)="onAadharChangeFront($event)" />
+    </ion-item>
+    <div class="img-frame">
+      <img src="https://avatars.githubusercontent.com/u/78205495?v=4" alt="" />
+    </div>
+    <ion-item>
+      <label for="aadhar">Upload Aadhar Back</label>
+      <input type="file" id="aadhar" multiple name="aadhar" (change)="onAadharChangeBack($event)" />
+    </ion-item>
+    <div class="img-frame">
+      <img src="https://avatars.githubusercontent.com/u/78205495?v=4" alt="" />
+    </div>
+    <div class="action">
+      <button class="retake-btn" (click)="handleRetake()">Retake</button>
+      <button class="next-btn" (click)="handleAadhar()">Next</button>
+    </div>
+  </div>
+</ion-content>
