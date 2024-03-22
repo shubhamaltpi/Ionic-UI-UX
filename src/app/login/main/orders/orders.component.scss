@@ -1,0 +1,77 @@
+.wrapper {
+  padding: 0.5rem;
+  width: 100%;
+
+  ion-searchbar {
+    --icon-color: red;
+    --border-radius: 0.5rem;
+  }
+
+  .filters {
+    display: flex;
+    gap: 0.3rem;
+    width: 120vw;
+    overflow-x: scroll;
+    margin-bottom: 1rem;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    ion-button {
+      height: 1rem;
+      width: fit-content;
+      display: flex;
+      gap: 0.4rem;
+      --border-radius: 0.7rem;
+      --border-color: #fff;
+      --color: #fff;
+    }
+  }
+
+  .product {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+
+    .product-info {
+      flex: 2;
+      h3 {
+        font-size: 1.2rem;
+      }
+      span {
+        font-size: 1rem;
+      }
+      p {
+        font-size: 0.8rem;
+      }
+    }
+    .product-img {
+      flex: 1;
+      height: 100%;
+      width: 100%;
+      position: relative;
+
+      img {
+        height: 90%;
+        width: 90%;
+        border-radius: 1rem;
+      }
+
+      button {
+        position: absolute;
+        bottom: -10%;
+        left: 7%;
+        padding: 0.5rem 2rem;
+        font-size: 1rem;
+        border-radius: 0.7rem;
+        border: 1px solid #fc4343;
+        background-color: #fc9494;
+        color: red;
+      }
+    }
+  }
+}

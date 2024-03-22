@@ -1,1 +1,88 @@
-<p>Orders</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Orders</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="wrapper">
+    <ion-searchbar
+      show-clear-button="focus"
+      placeholder="Search for the Product"
+    ></ion-searchbar>
+
+    <div class="filters">
+      <ion-button fill="outline">MAX Safety</ion-button>
+      <ion-button fill="outline"
+        ><ion-icon name="bookmarks-outline"></ion-icon> Pro</ion-button
+      >
+      <ion-button fill="outline"
+        >Cuisines <ion-icon name="caret-down-outline"></ion-icon
+      ></ion-button>
+      <ion-button fill="outline">Rating</ion-button>
+      <ion-button fill="outline">Rating</ion-button>
+      <ion-button fill="outline">Popular</ion-button>
+    </div>
+
+    <ion-list>
+      <div class="product" id="open-modal">
+        <div class="product-info">
+          <h3>Product Name</h3>
+          <span>$330</span>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas
+            cupiditate.
+          </p>
+        </div>
+        <div class="product-img">
+          <img
+            src="https://avatars.githubusercontent.com/u/78205495?v=4"
+            alt="product img"
+          />
+          <button>Add</button>
+        </div>
+      </div>
+      <div class="product" id="open-modal">
+        <div class="product-info">
+          <h3>Product Name</h3>
+          <span>$330</span>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas
+            cupiditate.
+          </p>
+        </div>
+        <div class="product-img">
+          <img
+            src="https://avatars.githubusercontent.com/u/78205495?v=4"
+            alt="product img"
+          />
+          <button>Add</button>
+        </div>
+      </div>
+    </ion-list>
+
+    <!-- PRODUCT DETAIL -->
+    <ion-modal
+      #modal
+      trigger="open-modal"
+      [canDismiss]="canDismiss"
+      [presentingElement]="page"
+    >
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Product Detail</ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="modal.dismiss()">Close</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content>
+          <div class="product-img">
+            <img src="https://avatars.githubusercontent.com/u/78205495?v=4" alt="product img">
+          </div>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+  </div>
+</ion-content>
