@@ -1,1 +1,160 @@
-<p>Orders</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-padding-start">Orders</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="wrapper">
+    <ion-searchbar
+      show-clear-button="focus"
+      placeholder="Search for the Product"
+    ></ion-searchbar>
+
+    <div class="filters">
+      <button class="filter">MAX Safety</button>
+      <button class="filter">
+        <ion-icon name="bookmarks-outline"></ion-icon> Pro
+      </button>
+      <button class="filter">
+        Cuisines <ion-icon name="caret-down-outline"></ion-icon>
+      </button>
+      <button class="filter">Rating</button>
+      <button class="filter">Popular</button>
+    </div>
+
+    <ion-list>
+      <div class="product" id="open-modal">
+        <div class="product-info">
+          <h3>Product Name</h3>
+          <span>$330</span>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas
+            cupiditate.
+          </p>
+        </div>
+        <div class="product-img">
+          <img
+            src="https://avatars.githubusercontent.com/u/78205495?v=4"
+            alt="product img"
+          />
+          <button>Add</button>
+        </div>
+      </div>
+      <div class="product" id="open-modal">
+        <div class="product-info">
+          <h3>Product Name</h3>
+          <span>$330</span>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas
+            cupiditate.
+          </p>
+        </div>
+        <div class="product-img">
+          <img
+            src="https://avatars.githubusercontent.com/u/78205495?v=4"
+            alt="product img"
+          />
+          <button>Add</button>
+        </div>
+      </div>
+    </ion-list>
+  </div>
+  <!-- PRODUCT DETAIL -->
+  <ion-modal
+    #modal
+    trigger="open-modal"
+    [canDismiss]="canDismiss"
+    [presentingElement]="page"
+  >
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title class="ion-padding-start">Product Detail</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="modal.dismiss()">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="content ion-no-padding">
+        <div class="product-img">
+          <img
+            src="https://avatars.githubusercontent.com/u/78205495?v=4"
+            alt="product img"
+          />
+        </div>
+        <div class="info">
+          <p class="name">Product Full Name</p>
+          <p class="desc">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Repellendus, magnam.
+          </p>
+        </div>
+        <ion-list lines="none" class="ion-no-padding">
+          <ion-list-header>
+            <ion-label>
+              <h6>Add On</h6>
+              <p>You can choose the below options</p>
+            </ion-label>
+          </ion-list-header>
+          <ion-item class="ion-no-padding">
+            <div class="item">
+              <div>
+                <ion-icon name="cart"></ion-icon>
+                <p>Option 1</p>
+              </div>
+              <div>
+                <ion-checkbox labelPlacement="start">$20</ion-checkbox>
+              </div>
+            </div>
+            <p></p>
+          </ion-item>
+          <ion-item class="ion-no-padding">
+            <div class="item">
+              <div>
+                <ion-icon name="cart"></ion-icon>
+                <p>Option 1</p>
+              </div>
+              <div>
+                <ion-checkbox labelPlacement="start">$20</ion-checkbox>
+              </div>
+            </div>
+            <p></p>
+          </ion-item>
+          <ion-item class="ion-no-padding">
+            <div class="item">
+              <div>
+                <ion-icon name="cart"></ion-icon>
+                <p>Option 1</p>
+              </div>
+              <div>
+                <ion-checkbox labelPlacement="start">$20</ion-checkbox>
+              </div>
+            </div>
+            <p></p>
+          </ion-item>
+          <ion-item class="ion-no-padding">
+            <div class="item">
+              <div>
+                <ion-icon name="cart"></ion-icon>
+                <p>Option 1</p>
+              </div>
+              <div>
+                <ion-checkbox labelPlacement="start">$20</ion-checkbox>
+              </div>
+            </div>
+            <p></p>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+      <ion-footer>
+        <div class="left">
+          <button class="dec">-</button>
+          <span class="quantity">1</span>
+          <button class="inc">+</button>
+        </div>
+        <button class="add-btn">Add</button>
+      </ion-footer>
+    </ng-template>
+  </ion-modal>
+</ion-content>

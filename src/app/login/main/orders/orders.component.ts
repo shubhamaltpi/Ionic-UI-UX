@@ -6,9 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./orders.component.scss'],
 })
 export class OrdersComponent implements OnInit {
+  page = '';
   constructor() {
-    console.log('Heey');
+    console.log('Orders');
   }
 
   ngOnInit() {}
+  async canDismiss(data?: any, role?: string) {
+    return role !== 'gesture';
+  }
 }
