@@ -1,5 +1,5 @@
 .wrapper {
-  padding: 0.5rem;
+  padding: 0 0.5rem;
   width: 100%;
 
   ion-searchbar {
@@ -12,20 +12,24 @@
     gap: 0.3rem;
     width: 120vw;
     overflow-x: scroll;
+    margin-top: .5rem;
     margin-bottom: 1rem;
+    margin-right: 1rem;
 
     &::-webkit-scrollbar {
       display: none;
     }
 
-    ion-button {
-      height: 1rem;
+    .filter {
+      background-color: transparent;
       width: fit-content;
       display: flex;
+      align-items: center;
       gap: 0.4rem;
-      --border-radius: 0.7rem;
-      --border-color: #fff;
-      --color: #fff;
+      font-size: 0.9rem;
+      padding: 0.3rem 1rem;
+      border: 1px solid #000;
+      border-radius: 0.7rem;
     }
   }
 
@@ -72,6 +76,101 @@
         background-color: #fc9494;
         color: red;
       }
+    }
+  }
+}
+
+ion-modal {
+  ion-content {
+    .product-img {
+      width: 100vw;
+      height: 27vh;
+      margin-bottom: 0.3rem;
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: fill;
+        border-bottom-right-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+      }
+    }
+
+    .info {
+      padding: 0 0.2rem;
+      height: fit-content;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #888;
+
+      .name {
+        margin-bottom: 0.3rem;
+      }
+
+      .desc {
+        font-size: 0.8rem;
+      }
+    }
+
+    ion-list {
+      ion-item {
+        width: 100%;
+        .item {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          div {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+          }
+        }
+      }
+    }
+  }
+
+  ion-footer {
+    height: 5vh;
+    background-color: antiquewhite;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+
+    .left {
+      flex: 1;
+      padding: 0 0.2rem;
+      height: 100%;
+      background-color: #ffa9a2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid red;
+      border-radius: .5rem;
+
+      button {
+        height: 100%;
+        width: 20%;
+        font-size: 1.2rem;
+        background-color: transparent;
+        color: red;
+      }
+
+      .quantity {
+        font-weight: 600;
+        font-size: 1.2rem;
+      }
+    }
+
+    .add-btn {
+      flex: 2;
+      height: 100%;
+      font-size: 1.2rem;
+      font-weight: 600;
+      background-color: #f81d1d;
+      color: #fff;
+      border-radius: .5rem;
     }
   }
 }

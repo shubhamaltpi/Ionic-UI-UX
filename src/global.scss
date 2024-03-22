@@ -24,3 +24,9 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
