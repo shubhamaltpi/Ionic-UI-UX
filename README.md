@@ -4,10 +4,10 @@ To install and run an Ionic app locally from GitHub, you'll typically follow the
 1. **Clone the Repository**: First, clone the GitHub repository of the Ionic app to your local machine. You can do this using the `git clone` command. Navigate to the directory where you want to clone the repository and run:
 
    ```
-   git clone <repository_url>
+   git clone (https://github.com/YOUR_USERNAME/Ionic-UI-UX.git)
    ```
 
-   Replace `<repository_url>` with the actual URL of the GitHub repository.
+   Replace `<YOUR_USERNAME>` with the actual URL of the GitHub repository.
 
 2. **Install Dependencies**: Once you have cloned the repository, navigate into the directory of the cloned repository and install the necessary dependencies. Typically, Ionic apps use npm (Node Package Manager) for managing dependencies. Run the following command:
 
