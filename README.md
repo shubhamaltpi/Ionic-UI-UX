@@ -28,3 +28,5 @@ To install and run an Ionic app locally from GitHub, you'll typically follow the
 4. **View the App**: Once the server is up and running, you can view the Ionic app in your web browser by navigating to `http://localhost:8100` (by default, unless specified otherwise).
 
 These steps assume that the Ionic app you're working with follows the typical structure and setup. If the repository contains any specific instructions or configurations, make sure to follow those as well. Additionally, ensure that you have Node.js and npm installed on your machine before proceeding with these steps.
+
+Thank you !
