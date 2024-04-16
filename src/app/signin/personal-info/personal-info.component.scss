@@ -1,12 +1,28 @@
 form {
-    margin: .5rem;
+  margin: 0.5rem;
 }
 
 .action {
-    ion-button {
-        --padding-top: .5rem;
-        --padding-bottom: .5rem;
-        --padding-start: 1rem;
-        --padding-end: 1rem;
+  ion-button {
+    --padding-top: 0.5rem;
+    --padding-bottom: 0.5rem;
+    --padding-start: 1rem;
+    --padding-end: 1rem;
+  }
+}
+
+.states, .cities {
+    display: flex;
+    flex-direction: column;
+    height: 20rem;
+    overflow-y: scroll;
+
+    ion-list {
+      
+        ion-item {
+            &:hover {
+                --background: #f0f0f0;
+            }
+        }
     }
 }

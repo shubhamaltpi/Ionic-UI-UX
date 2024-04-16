@@ -12,14 +12,14 @@
         label-placement="floating"
         placeholder="First Name"
         name="firstName"
-        [(ngModel)]="personalData.firstName"
+        [(ngModel)]="firstName"
       ></ion-input>
       <ion-input
         label="Last Name"
         labelPlacement="floating"
         placeholder="Enter Last Name"
         name="lastName"
-        [(ngModel)]="personalData.lastName"
+        [(ngModel)]="lastName"
       ></ion-input>
     </ion-item>
     <ion-item>
@@ -29,7 +29,15 @@
         label-placement="floating"
         placeholder="mobile No."
         name="mobile"
-        [(ngModel)]="personalData.mobile"
+        [(ngModel)]="personalData.mobileNumber"
+      ></ion-input>
+
+      <ion-input
+        type="date"
+        label="Date of birth"
+        labelPlacement="floating"
+        name="dob"
+        [(ngModel)]="personalData.dateOfBirth"
       ></ion-input>
     </ion-item>
     <ion-item>
@@ -38,7 +46,14 @@
         label-placement="floating"
         placeholder="Enter your email"
         name="email"
-        [(ngModel)]="personalData.email"
+        [(ngModel)]="personalData.emailId"
+      ></ion-input>
+      <ion-input
+        label="Password"
+        label-placement="floating"
+        placeholder="Enter your password"
+        name="password"
+        [(ngModel)]="personalData.password"
       ></ion-input>
     </ion-item>
     <ion-item>
@@ -63,21 +78,69 @@
     </ion-item>
     <ion-item>
       <ion-input
+        *ngIf="selectedElement !== 'state'"
+        label="State"
+        label-placement="floating"
+        placeholder="Enter your State"
+        name="state"
+        (click)="handleFocus('state')"
+        [(ngModel)]="state"
+      ></ion-input>
+      <ion-item *ngIf="selectedElement === 'state'">
+        <div class="states">
+          <ion-searchbar></ion-searchbar>
+          <ion-list *ngFor="let data of states">
+            <ion-item
+              [id]="data.id"
+              (click)="
+                handleSelectStates({
+                  el: 'state',
+                  id: data.id,
+                  name: data.name
+                })
+              "
+            >
+              <ion-label>{{ data.name }}</ion-label>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-item>
+      <ion-input
+        *ngIf="selectedElement !== 'city'"
+        label="City"
+        label-placement="floating"
+        placeholder="City"
+        name="city"
+        (click)="handleFocus('city')"
+        [(ngModel)]="city"
+      ></ion-input>
+      <ion-item *ngIf="selectedElement === 'city'">
+        <div class="cities">
+          <ion-searchbar></ion-searchbar>
+          <ion-list *ngFor="let data of cities">
+            <ion-item
+              [id]="data.id"
+              (click)="
+                handleSelectStates({ el: 'city', id: data.id, name: data.name })
+              "
+            >
+              <ion-label>{{ data.name }}</ion-label>
+            </ion-item>
+          </ion-list>
+          <ion-infinite-scroll (ionInfinite)="handleInfinite($event, 'state')">
+            <ion-infinite-scroll-content></ion-infinite-scroll-content>
+          </ion-infinite-scroll>
+        </div>
+      </ion-item>
+    </ion-item>
+    <ion-item>
+      <ion-input
         type="number"
         label="Pincode"
         label-placement="floating"
         placeholder="Enter your Pincode"
         name="pincode"
-        [(ngModel)]="personalData.pinCode"
-      ></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input
-        label="State"
-        label-placement="floating"
-        placeholder="Enter your State"
-        name="state"
-        [(ngModel)]="personalData.state"
+        [(ngModel)]="personalData.userPincode"
       ></ion-input>
       <ion-input
         label="Country"
@@ -87,6 +150,57 @@
         [(ngModel)]="personalData.country"
       ></ion-input>
     </ion-item>
+    <ion-item>
+      <ion-input
+        type="text"
+        name="nomineeName"
+        labelPlacement="floating"
+        label="Nominee Name"
+        [(ngModel)]="personalData.nomineeName"
+      />
+    </ion-item>
+    <ion-item>
+      <ion-input
+        type="text"
+        name="nomineeDob"
+        labelPlacement="floating"
+        label="Nominee Relation"
+        [(ngModel)]="personalData.nomineeRelation"
+      />
+      <ion-input
+        type="text"
+        name="nomineeDob"
+        labelPlacement="floating"
+        label="Nominee Date of birth"
+        [(ngModel)]="personalData.nomineeDateOfBirth"
+      />
+    </ion-item>
+    <ion-item>
+      <ion-input
+        type="text"
+        name="campaign"
+        labelPlacement="floating"
+        label="Campaign"
+        [(ngModel)]="personalData.utmCampaign"
+      />
+      <ion-input
+        type="text"
+        name="Medium"
+        labelPlacement="floating"
+        label="Medium"
+        [(ngModel)]="personalData.utmMedium"
+      />
+    </ion-item>
+    <ion-item>
+      <ion-input
+        type="text"
+        name="source"
+        labelPlacement="floating"
+        label="Source"
+        [(ngModel)]="personalData.utmSource"
+      />
+    </ion-item>
+
     <ion-item lines="none" class="action">
       <ion-button slot="end" (click)="handleRetake()">Reset</ion-button>
       <ion-button slot="end" type="button" (click)="handlePersonalInfo()"

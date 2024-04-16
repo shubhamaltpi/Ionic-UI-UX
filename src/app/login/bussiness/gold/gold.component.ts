@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { API_ENDPOINT } from 'src/app/appConfig/appConfig';
 
 @Component({
   selector: 'app-gold',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class GoldComponent implements OnInit {
   data: any
 
-  constructor(private router: Router, private httpClient: HttpClient) { }
+  constructor(@Inject(API_ENDPOINT) public endpoint: string, private router: Router, private httpClient: HttpClient) { }
 
   ngOnInit() {
     console.log('Gold Page');
@@ -19,7 +20,7 @@ export class GoldComponent implements OnInit {
 
 
   async fetchGold() {
-    this.httpClient.get('http://192.168.1.18:4001/getrate').subscribe((res: any) => {
+    this.httpClient.get(`http://192.168.1.18/getrate`).subscribe((res: any) => {
       if (res.statusCode == 200) {
         this.data = res.result.data
       } else {

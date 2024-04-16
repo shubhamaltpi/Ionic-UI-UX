@@ -16,6 +16,10 @@ const routes: Routes = [
   {
     path: 'setting',
     component: SettingComponent
+  },
+  {
+    path: 'bussiness',
+    loadChildren: () => import('./bussiness/bussiness.module').then( m => m.BussinessPageModule)
   }
 ];
 
