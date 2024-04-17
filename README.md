@@ -66,5 +66,16 @@ required data in body
     utmCampaign,
 
 
+  ### get product list 
+  ```
+/user/getproductlist
+```
+###get product details
+
+```
+/user/proudct/info?productId=AU999GC20R
+```
+productId will be sku
+
 
 
