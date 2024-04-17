@@ -1,3 +1,139 @@
-<p>
-  silver works!
-</p>
+<ion-header>
+  <div class="main">
+    <div class="header">
+      <img src="../../../../../assets/images/image-2.avif" class="poster" />
+
+      <div class="header-nav">
+        <div>
+          <ion-button fill="clear" (click)="handleBackBtn()">
+            <ion-icon
+              name="chevron-back-outline"
+              class="back-btn"
+              size="large"
+            ></ion-icon>
+          </ion-button>
+
+          <ion-avatar>
+            <img
+              src="https://avatars.githubusercontent.com/u/78205495?v=4"
+              alt="Silhouette of a person's head"
+            />
+          </ion-avatar>
+          <div id="heading">
+            <p class="heading">Gold Locker</p>
+            <p class="sub-heading">0.0 mg</p>
+          </div>
+        </div>
+
+        <ion-button fill="clear">
+          <ion-icon
+            name="ellipsis-vertical-outline"
+            class="setting-btn"
+          ></ion-icon>
+        </ion-button>
+      </div>
+
+      <div class="header-footer">
+        <h1>
+          <span class="rupee-icon">₹</span>{{ data.rates.gBuy }}/<span
+            class="mg"
+            >mg</span
+          >
+        </h1>
+        <p class="p1">Current gold buying price</p>
+        <p class="p2">(inclusive of taxes)</p>
+      </div>
+    </div>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div class="content">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Sold 65.6mg of gold</ion-card-subtitle>
+        <ion-card-title>₹328.87</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-icon name="checkmark-done-circle-sharp"></ion-icon>
+        <ion-text>Received • Aug 23, 2023</ion-text>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Sold 65.6mg of gold</ion-card-subtitle>
+        <ion-card-title>₹328.87</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-icon name="checkmark-done-circle-sharp"></ion-icon>
+        <ion-text>Received • Aug 23, 2023</ion-text>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Sold 65.6mg of gold</ion-card-subtitle>
+        <ion-card-title>₹328.87</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-icon name="checkmark-done-circle-sharp"></ion-icon>
+        <ion-text>Received • Aug 23, 2023</ion-text>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Sold 65.6mg of gold</ion-card-subtitle>
+        <ion-card-title>₹328.87</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-icon name="checkmark-done-circle-sharp"></ion-icon>
+        <ion-text>Received • Aug 23, 2023</ion-text>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Sold 65.6mg of gold</ion-card-subtitle>
+        <ion-card-title>₹328.87</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-icon name="checkmark-done-circle-sharp"></ion-icon>
+        <ion-text>Received • Aug 23, 2023</ion-text>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Sold 65.6mg of gold</ion-card-subtitle>
+        <ion-card-title>₹328.87</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-icon name="checkmark-done-circle-sharp"></ion-icon>
+        <ion-text>Received • Aug 23, 2023</ion-text>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Sold 65.6mg of gold</ion-card-subtitle>
+        <ion-card-title>₹328.87</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-icon name="checkmark-done-circle-sharp"></ion-icon>
+        <ion-text>Received • Aug 23, 2023</ion-text>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Sold 65.6mg of silver</ion-card-subtitle>
+        <ion-card-title>₹328.87</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-icon name="checkmark-done-circle-sharp"></ion-icon>
+        <ion-text>Received • Aug 23, 2023</ion-text>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div class="actions">
+    <ion-button shape="round">Buy</ion-button>
+    <ion-button shape="round">Sell</ion-button>
+    <ion-button shape="round">Delivery</ion-button>
+  </div>
+</ion-content>

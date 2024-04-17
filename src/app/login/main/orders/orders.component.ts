@@ -22,6 +22,6 @@ export class OrdersComponent implements OnInit {
   }
 
   handleProduct() {
-    this.router.navigateByUrl('login/bussiness')
+    this.router.navigateByUrl('login/bussiness/gold');
   }
 }
