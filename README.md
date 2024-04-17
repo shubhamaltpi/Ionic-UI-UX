@@ -65,6 +65,24 @@ required data in body
     utmMedium,
     utmCampaign,
 
+    ```
+     "mobileNumber":"90673433",
+    "emailId":"ahers267@gmail.com",
+    "password":"Shubham",
+    "Name":"ShubhamAher",
+    "userCityCode":"1GXDPyX2",
+    "userStateCode":"ep9kJ7Px",
+    "userPincode":"431113",
+    "dateOfBirth":"2001-09-19",
+    "nomineeName":"shather",
+    "nomineeDateOfBirth":"2001-09-29",
+    "nomineeRelation":"Brother",
+    "utmSource":"FD",
+    "utmMedium":"SA/BRANCH/MR/IFAPRIME/IFAGROWTH/NATIONALDISTRIBUTOR/CORPORATELIABILITIES",
+    "utmCampaign":"EM42342434"
+}
+    ```
+
 
   ### get product list 
   ```
