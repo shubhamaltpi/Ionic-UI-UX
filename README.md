@@ -96,4 +96,17 @@ required data in body
 productId will be sku
 
 
+## bank created 
+
+```
+/user/bank/bankcreate
+```
+JWt Required 
+body data 
+```
+accountNumber,
+    accountName,
+    ifscCode
+```
+
 
