@@ -5,6 +5,7 @@ import { MainPage } from './main.page';
 import { OrdersComponent } from './orders/orders.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SupportComponent } from './support/support.component';
+// import { AddAccountComponent } from './add-account/add-account.component';
 
 const routes: Routes = [
   {
@@ -15,7 +16,15 @@ const routes: Routes = [
       { path: 'profile', component: ProfileComponent },
       { path: 'order', component: OrdersComponent },
       { path: 'support', component: SupportComponent },
+      // { path: 'account', component: AddAccountComponent },
     ],
+  },
+  {
+    path: 'account',
+    loadChildren: () =>
+      import('./add-account/add-account.module').then(
+        (m) => m.AddAccountPageModule
+      ),
   },
 ];
 
@@ -23,4 +32,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class MainPageRoutingModule { }
+export class MainPageRoutingModule {}

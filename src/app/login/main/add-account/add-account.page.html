@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-padding-start">Account Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollY]="false">
+  <form #accountDetail="ngForm" (ngSubmit)="createAccount(accountDetail)">
+    <ion-item>
+      <ion-input
+        type="number"
+        label="Account No"
+        label-placement="floating"
+        placeholder="Account No"
+        name="AccountNo"
+        [(ngModel)]="accountDetails.accountNumber"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        type="text"
+        label="Account Name"
+        labelPlacement="floating"
+        placeholder="Enter Account Name"
+        name="AccountName"
+        [(ngModel)]="accountDetails.accountName"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        type="number"
+        label="IFSC"
+        label-placement="floating"
+        placeholder="IFSC"
+        name="ifsc"
+        [(ngModel)]="accountDetails.ifscCode"
+      ></ion-input>
+    </ion-item>
+    <ion-button expand="block" type="submit">Submit</ion-button>
+  </form>
+</ion-content>
