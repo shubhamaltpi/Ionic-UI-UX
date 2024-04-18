@@ -11,18 +11,19 @@ form {
   }
 }
 
-.states, .cities {
-    display: flex;
-    flex-direction: column;
-    height: 20rem;
-    overflow-y: scroll;
+.states,
+.cities {
+  display: flex;
+  flex-direction: column;
 
+  .list {
+    // overflow-y: scroll;
     ion-list {
-      
-        ion-item {
-            &:hover {
-                --background: #f0f0f0;
-            }
+      ion-item {
+        &:hover {
+          --background: #f0f0f0;
         }
+      }
     }
+  }
 }

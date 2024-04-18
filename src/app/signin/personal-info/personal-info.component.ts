@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { GeoLocationAPIKEY } from 'src/app/appConfig/appConfig'
+import { API_ENDPOINT, GeoLocationAPIKEY } from 'src/app/appConfig/appConfig'
+import { HelperService } from 'src/app/services/helper/helper.service';
 
 @Component({
   selector: 'app-personal-info',
@@ -13,18 +14,19 @@ export class PersonalInfoComponent implements OnInit {
   lastName = ''
   state = ''
   city = ''
+  address: ''
+  aadharNo: ''
+  country: ''
   personalData = {
     Name: '',
     emailId: '',
     dateOfBirth: '',
     password: '',
     mobileNumber: '',
-    aadharNo: '',
-    address: '',
     userPincode: '',
     userStateCode: '',
     userCityCode: '',
-    country: '',
+
     nomineeName: '',
     nomineeDateOfBirth: '',
     nomineeRelation: '',
@@ -53,20 +55,21 @@ export class PersonalInfoComponent implements OnInit {
   ]
   cityPage = 1
   cityName: string = ''
-  constructor(@Inject(GeoLocationAPIKEY) public API_KEY: string, private router: Router, private http: HttpClient) { }
+  constructor(@Inject(GeoLocationAPIKEY) public API_KEY: string, private router: Router, private http: HttpClient, private helperService: HelperService) { }
 
   ngOnInit(): void {
     const data = JSON.parse(localStorage.getItem('loc'))
     this.getLocation(data).subscribe((res: any) => {
       const data = res.response.features[8].properties;
-      this.personalData.address = data.name
-      this.personalData.userPincode = data.postalcode
-      this.state = data.region
-      this.personalData.country = data.country
+
+      this.stateName = data.name
+      // this.personalData.userPincode = data.postalcode
+      // this.state = data.region
+      this.country = data.country
     })
 
-    this.fetchStates()
-    this.fetchCities()
+    this.fetchStates(this.stateName, this.statePage)
+    this.fetchCities(this.personalData.userStateCode, this.cityName, this.cityPage)
   }
 
   getLocation({ lat, lng }) {
@@ -77,16 +80,15 @@ export class PersonalInfoComponent implements OnInit {
     this.selectedElement = element
   }
 
-  fetchStates() {
-    this.http.get(`http://192.168.1.18:4001/getstates?count=100&name=${this.stateName}&page=${this.statePage}`).subscribe((res: any) => {
-      console.log(res);
+  fetchStates(stateName: any, pageNo: any) {
+    this.helperService.getStates({ stateName, pageNo }).subscribe((res: any) => {
       this.states = res.result.data
     })
   }
 
-  fetchCities() {
-    this.http.get(`http://192.168.1.18:4001/getcities?stateId=${this.personalData.userStateCode}&count=100&name=${this.cityName}&page=${this.cityPage}`).subscribe((res: any) => {
-      this.states = res.result.data
+  fetchCities(id: any, cityName: any, pageNo: any) {
+    this.helperService.getCities({ id, cityName, pageNo }).subscribe((res: any) => {
+      this.cities = res.result.data
     })
   }
 
@@ -101,19 +103,26 @@ export class PersonalInfoComponent implements OnInit {
     }
   }
 
-  handleInfinite(event: any, type: string) {
-    console.log(event, type);
-    if (type === 'state') {
-
-    } else {
-
-    }
+  handleInfinite(event: any) {
+    console.log(event);
     event.target.complete()
+  }
+
+  handleSearch(event: any, element: string) {
+    const name = event.target.value
+    if (element === 'city') {
+      this.fetchCities(this.personalData.userStateCode, name, this.cityPage)
+    } else if (element === 'state') {
+      this.fetchStates(name, this.statePage)
+    }
+
   }
 
   handlePersonalInfo() {
     this.personalData.Name = this.firstName + this.lastName
     console.log(this.personalData);
+
+    localStorage.setItem('signup', JSON.stringify(this.personalData))
     this.router.navigate(['signin/selfie'])
   }
 
@@ -122,6 +131,6 @@ export class PersonalInfoComponent implements OnInit {
     this.lastName = ''
     this.personalData.emailId = ''
     this.personalData.mobileNumber = ''
-    this.personalData.aadharNo = ''
+    this.aadharNo = ''
   }
 }

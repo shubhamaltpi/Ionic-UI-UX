@@ -63,7 +63,7 @@
         label-placement="floating"
         placeholder="Enter your Aadhar Card No."
         name="aadharNo"
-        [(ngModel)]="personalData.aadharNo"
+        [(ngModel)]="aadharNo"
       ></ion-input>
     </ion-item>
     <ion-item>
@@ -73,7 +73,7 @@
         fill="outline"
         placeholder="Enter your Address"
         name="address"
-        [(ngModel)]="personalData.address"
+        [(ngModel)]="address"
       ></ion-textarea>
     </ion-item>
     <ion-item>
@@ -88,21 +88,26 @@
       ></ion-input>
       <ion-item *ngIf="selectedElement === 'state'">
         <div class="states">
-          <ion-searchbar></ion-searchbar>
-          <ion-list *ngFor="let data of states">
-            <ion-item
-              [id]="data.id"
-              (click)="
-                handleSelectStates({
-                  el: 'state',
-                  id: data.id,
-                  name: data.name
-                })
-              "
-            >
-              <ion-label>{{ data.name }}</ion-label>
-            </ion-item>
-          </ion-list>
+          <ion-searchbar
+            [debounce]="100"
+            (ionInput)="handleSearch($event, 'state')"
+          ></ion-searchbar>
+          <div>
+            <ion-list *ngFor="let data of states">
+              <ion-item
+                [id]="data.id"
+                (click)="
+                  handleSelectStates({
+                    el: 'state',
+                    id: data.id,
+                    name: data.name
+                  })
+                "
+              >
+                <ion-label>{{ data.name }}</ion-label>
+              </ion-item>
+            </ion-list>
+          </div>
         </div>
       </ion-item>
       <ion-input
@@ -116,20 +121,32 @@
       ></ion-input>
       <ion-item *ngIf="selectedElement === 'city'">
         <div class="cities">
-          <ion-searchbar></ion-searchbar>
-          <ion-list *ngFor="let data of cities">
-            <ion-item
-              [id]="data.id"
-              (click)="
-                handleSelectStates({ el: 'city', id: data.id, name: data.name })
-              "
+          <ion-searchbar
+            [debounce]="100"
+            (ionInput)="handleSearch($event, 'city')"
+          ></ion-searchbar>
+          <div class="list ion-content-scroll-host">
+            <ion-list *ngFor="let data of cities">
+              <ion-item
+                [id]="data.id"
+                (click)="
+                  handleSelectStates({
+                    el: 'city',
+                    id: data.id,
+                    name: data.name
+                  })
+                "
+              >
+                <ion-label>{{ data.name }}</ion-label>
+              </ion-item>
+            </ion-list>
+            <ion-infinite-scroll
+              [threshold]="0"
+              (ionInfinite)="handleInfinite($event)"
             >
-              <ion-label>{{ data.name }}</ion-label>
-            </ion-item>
-          </ion-list>
-          <ion-infinite-scroll (ionInfinite)="handleInfinite($event, 'state')">
-            <ion-infinite-scroll-content></ion-infinite-scroll-content>
-          </ion-infinite-scroll>
+              <ion-infinite-scroll-content></ion-infinite-scroll-content>
+            </ion-infinite-scroll>
+          </div>
         </div>
       </ion-item>
     </ion-item>
@@ -147,7 +164,7 @@
         label-placement="floating"
         placeholder="Enter your Country"
         name="country"
-        [(ngModel)]="personalData.country"
+        [(ngModel)]="country"
       ></ion-input>
     </ion-item>
     <ion-item>
@@ -162,16 +179,16 @@
     <ion-item>
       <ion-input
         type="text"
-        name="nomineeDob"
+        name="Nominee Relation"
         labelPlacement="floating"
         label="Nominee Relation"
         [(ngModel)]="personalData.nomineeRelation"
       />
       <ion-input
-        type="text"
-        name="nomineeDob"
-        labelPlacement="floating"
+        type="date"
         label="Nominee Date of birth"
+        labelPlacement="floating"
+        name="dob"
         [(ngModel)]="personalData.nomineeDateOfBirth"
       />
     </ion-item>
