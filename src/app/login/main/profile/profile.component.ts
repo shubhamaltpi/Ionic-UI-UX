@@ -9,6 +9,8 @@ export class ProfileComponent  implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log("profile")
+  }
 
 }
