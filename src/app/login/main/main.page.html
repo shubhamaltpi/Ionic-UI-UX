@@ -1,6 +1,6 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
-</ion-app>
+
 
 <ion-tabs (ionTabsDidChange)="handleTabChange($event)">
   <ion-tab-bar slot="bottom">
@@ -10,7 +10,7 @@
       ></ion-icon>
       profile
     </ion-tab-button>
-    <ion-tab-button tab="order">
+    <ion-tab-button tab="orders">
       <ion-icon
         [name]="selected === 'order' ? 'cart' : 'cart-outline'"
       ></ion-icon>
@@ -28,3 +28,4 @@
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>
+</ion-app>

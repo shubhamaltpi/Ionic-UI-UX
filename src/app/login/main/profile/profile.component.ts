@@ -9,7 +9,9 @@ import { Router } from '@angular/router';
 export class ProfileComponent implements OnInit {
   constructor(private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log("profile")
+  }
 
   addAccount() {
     this.router.navigateByUrl('login/main/account');

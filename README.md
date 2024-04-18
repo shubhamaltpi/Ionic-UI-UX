@@ -30,3 +30,83 @@ To install and run an Ionic app locally from GitHub, you'll typically follow the
 These steps assume that the Ionic app you're working with follows the typical structure and setup. If the repository contains any specific instructions or configurations, make sure to follow those as well. Additionally, ensure that you have Node.js and npm installed on your machine before proceeding with these steps.
 
 Thank you !
+## Backend Api 
+Get States list
+```
+   getstates?count=100&name=ma&page=1
+   ```
+Get cities on the based on state 
+```
+   getcities?stateId= &count=100&name=ma&page=1
+   ```
+get rate of gold and silver
+```
+   /getrate
+   ```
+
+user onboard or signup
+
+```
+/subadmin/userOnboard
+```
+required data in body 
+  mobileNumber,
+    emailId,
+    password,
+    Name,
+    userCityCode,
+    userStateCode,
+    userPincode,
+    dateOfBirth,
+    nomineeName,
+    nomineeDateOfBirth,
+    nomineeRelation,
+    utmSource,
+    utmMedium,
+    utmCampaign,
+
+    ```
+     "mobileNumber":"90673433",
+    "emailId":"ahers267@gmail.com",
+    "password":"Shubham",
+    "Name":"ShubhamAher",
+    "userCityCode":"1GXDPyX2",
+    "userStateCode":"ep9kJ7Px",
+    "userPincode":"431113",
+    "dateOfBirth":"2001-09-19",
+    "nomineeName":"shather",
+    "nomineeDateOfBirth":"2001-09-29",
+    "nomineeRelation":"Brother",
+    "utmSource":"FD",
+    "utmMedium":"SA/BRANCH/MR/IFAPRIME/IFAGROWTH/NATIONALDISTRIBUTOR/CORPORATELIABILITIES",
+    "utmCampaign":"EM42342434"
+}
+    ```
+
+
+  ### get product list 
+  ```
+/user/getproductlist
+```
+###get product details
+
+```
+/user/proudct/info?productId=AU999GC20R
+```
+productId will be sku
+
+
+## bank created 
+
+```
+/user/bank/bankcreate
+```
+JWt Required 
+body data 
+```
+accountNumber,
+    accountName,
+    ifscCode
+```
+
+

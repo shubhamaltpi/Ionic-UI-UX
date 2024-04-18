@@ -9,7 +9,9 @@ export class MainPage implements OnInit {
   constructor() {}
   selected = '';
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log("main")
+  }
 
   handleTabChange(data: any) {
     this.selected = data.tab;

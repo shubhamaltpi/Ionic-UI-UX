@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -8,10 +9,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class PanComponent implements OnInit {
   pan = ''
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  data: any
+  constructor(private router: Router, private route: ActivatedRoute, private httpClient: HttpClient) { }
 
   ngOnInit() {
-    console.log('PAN CARD');
+    this.data = JSON.parse(localStorage.getItem('signup'))
   }
 
   onPanSelected(e: any) {
@@ -29,8 +31,14 @@ export class PanComponent implements OnInit {
 
 
   handlePan() {
-    console.log(this.pan);
-    this.router.navigate(['../main'], { relativeTo: this.route.parent })
+    this.httpClient.post(`http://192.168.1.18:4001/subadmin/userOnboard`, this.data).subscribe((res: any) => {
+      if (res.Event) {
+        localStorage.removeItem('signup')
+        this.router.navigateByUrl('login/main')
+      } else {
+        console.log('Error when onboarding!');
+      }
+    })
   }
 
   handleRetake() {
