@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  locationApiKey: 'pBESHXTkfifMlQDqsP1azFdEiezX2mIq'
+  locationApiKey: 'pBESHXTkfifMlQDqsP1azFdEiezX2mIq',
+  urlEndPoint: 'http://192.168.1.18:4001'
 };
 
 /*

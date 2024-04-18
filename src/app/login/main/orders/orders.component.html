@@ -38,7 +38,7 @@
             src="https://avatars.githubusercontent.com/u/78205495?v=4"
             alt="product img"
           />
-          <button>Add</button>
+          <button (click)="handleProduct()">Add</button>
         </div>
       </div>
       <div class="product" id="open-modal">
@@ -55,13 +55,13 @@
             src="https://avatars.githubusercontent.com/u/78205495?v=4"
             alt="product img"
           />
-          <button>Add</button>
+          <button (click)="handleProduct()">Add</button>
         </div>
       </div>
     </ion-list>
   </div>
   <!-- PRODUCT DETAIL -->
-  <ion-modal
+  <!-- <ion-modal
     #modal
     trigger="open-modal"
     [canDismiss]="canDismiss"
@@ -156,5 +156,5 @@
         <button class="add-btn">Add</button>
       </ion-footer>
     </ng-template>
-  </ion-modal>
+  </ion-modal> -->
 </ion-content>

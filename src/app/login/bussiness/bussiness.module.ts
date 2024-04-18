@@ -9,6 +9,7 @@ import { BussinessPageRoutingModule } from './bussiness-routing.module';
 import { BussinessPage } from './bussiness.page';
 import { HttpClientModule } from '@angular/common/http';
 import { GoldComponent } from './gold/gold.component';
+import { SilverComponent } from './silver/silver.component';
 
 @NgModule({
   imports: [
@@ -16,8 +17,8 @@ import { GoldComponent } from './gold/gold.component';
     FormsModule,
     IonicModule,
     BussinessPageRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  declarations: [BussinessPage, GoldComponent]
+  declarations: [BussinessPage, GoldComponent, SilverComponent],
 })
-export class BussinessPageModule { }
+export class BussinessPageModule {}

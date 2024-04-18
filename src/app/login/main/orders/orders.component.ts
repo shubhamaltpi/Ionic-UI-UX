@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-orders',
@@ -7,12 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrdersComponent implements OnInit {
   page = '';
-  constructor() {
+
+  constructor(private router: Router) {
     console.log('Orders');
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('Order');
+  }
+
   async canDismiss(data?: any, role?: string) {
     return role !== 'gesture';
+  }
+
+  handleProduct() {
+    this.router.navigateByUrl('login/bussiness/gold');
   }
 }
