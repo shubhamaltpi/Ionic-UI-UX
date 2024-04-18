@@ -9,6 +9,8 @@ export class SupportComponent  implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('support')
+  }
 
 }
