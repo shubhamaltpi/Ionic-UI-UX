@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { MainPage } from './main.page';
 import { ProfileComponent } from './profile/profile.component';
 import { SupportComponent } from './support/support.component';
+// import { AddAccountComponent } from './add-account/add-account.component';
 
 const routes: Routes = [
   {
@@ -19,7 +20,13 @@ const routes: Routes = [
       },
     ],
   },
-
+  {
+    path: 'account',
+    loadChildren: () =>
+      import('./add-account/add-account.module').then(
+        (m) => m.AddAccountPageModule
+      ),
+  },
 ];
 
 @NgModule({
