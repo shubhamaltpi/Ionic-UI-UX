@@ -110,3 +110,13 @@ accountNumber,
 ```
 
 
+# buy / sell 
+```
+/user/goldsilver/gSBuy
+```
+body
+```
+{
+    "metalType":"SILVER/GOLD/SIP(SIP NOT Activated now)", "quantity":"0.5"
+}
+```
