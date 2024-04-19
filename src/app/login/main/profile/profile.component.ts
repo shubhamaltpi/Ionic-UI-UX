@@ -10,7 +10,8 @@ export class ProfileComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {
-    console.log("profile")
+    console.log('profile');
+    console.log(localStorage.getItem('authToken'));
   }
 
   addAccount() {

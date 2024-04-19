@@ -16,12 +16,14 @@
       ></ion-input>
       <ion-icon name="person-outline"></ion-icon>
     </ion-item>
-    <ion-text
-      class="errorInput"
-      color="danger"
-      *ngIf="email.errors?.['required']"
-    >
-      email is required.
+    <ion-text *ngIf="email.invalid && (email.dirty || email.touched)">
+      <ion-text
+        class="errorInput"
+        color="danger"
+        *ngIf="email.errors?.['required']"
+      >
+        email is required.
+      </ion-text>
     </ion-text>
     <ion-item lines="none" class="ion-padding">
       <ion-input
@@ -35,12 +37,14 @@
       ></ion-input>
       <ion-icon name="lock-closed-outline"></ion-icon>
     </ion-item>
-    <ion-text
-      class="errorInput"
-      color="danger"
-      *ngIf="password.errors?.['required']"
-    >
-      Password is required.
+    <ion-text *ngIf="password.invalid && (password.dirty || password.touched)">
+      <ion-text
+        class="errorInput"
+        color="danger"
+        *ngIf="password.errors?.['required']"
+      >
+        Password is required.
+      </ion-text>
     </ion-text>
 
     <div class="error-container ion-padding-top">

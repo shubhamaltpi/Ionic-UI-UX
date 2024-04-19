@@ -13,7 +13,7 @@ export class AccountService {
   ) {}
 
   accountCreate(data: any): Observable<any> {
-    const authToken = 'Bearer ' + localStorage.getItem('token');
+    const authToken = localStorage.getItem('authToken');
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
