@@ -16,8 +16,7 @@ const routes: Routes = [
       { path: 'support', component: SupportComponent },
       {
         path: 'orders',
-        loadChildren: () =>
-          import('./orders/orders.module').then((m) => m.OrdersPageModule),
+        loadChildren: () => import('./orders/orders.module').then( m => m.OrdersPageModule)
       },
     ],
   },

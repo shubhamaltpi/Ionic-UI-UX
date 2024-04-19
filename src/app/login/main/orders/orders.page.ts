@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./orders.page.scss'],
 })
 export class OrdersPage {
+
   demoOrderData = [
     {
       id: 0,
@@ -38,4 +39,5 @@ export class OrdersPage {
   async canDismiss(data?: any, role?: string) {
     return role !== 'gesture';
   }
+
 }

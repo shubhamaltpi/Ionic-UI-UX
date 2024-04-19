@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from 'src/app/services/account-creation/account.service';
 
 @Component({
   selector: 'app-add-account',
@@ -11,11 +12,13 @@ export class AddAccountPage implements OnInit {
     accountName: '',
     ifscCode: '',
   };
-  constructor() {}
+  constructor(private addAccount: AccountService) {}
 
   ngOnInit() {}
 
   createAccount(data) {
-    console.log('click', this.accountDetails);
+    this.addAccount.accountCreate(this.accountDetails).subscribe(()=>{
+      
+    })
   }
 }
