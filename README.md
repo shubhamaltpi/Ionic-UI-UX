@@ -111,6 +111,12 @@ accountNumber,
 
 
 # buy / sell 
+#### details of user 
+```
+/user/party/data
+
+```
+#### gold silver buy only 
 ```
 /user/goldsilver/gSBuy
 ```
@@ -120,3 +126,9 @@ body
     "metalType":"SILVER/GOLD/SIP(SIP NOT Activated now)", "quantity":"0.5"
 }
 ```
+
+#### gold silver sell api
+```
+```
+
+#### 
