@@ -57,21 +57,13 @@
     </ion-button>
   </div>
 
-  <ion-card class="wallet">
-    <ion-card-header>
-      <div class="flex">
-        <ion-card-title>Today</ion-card-title>
-        <ion-icon name="chevron-forward-outline"></ion-icon>
-      </div>
-      <ion-card-subtitle>earnings</ion-card-subtitle>
-    </ion-card-header>
-
-    <ion-card-content class="ion-no-padding">
-      <h1>$ 0</h1>
-      <span>points</span>
-      <h1><ion-icon name="star-half-outline"></ion-icon> 0</h1>
-    </ion-card-content>
-  </ion-card>
+  <div class="account">
+    <p>Add your bank account</p>
+    <ion-button (click)="addAccount()">
+      <ion-icon name="wallet-outline"></ion-icon>
+      <p>Add Account</p>
+    </ion-button>
+  </div>
 
   <ion-item lines="none" class="list">
     <ion-label>Completed orders</ion-label>

@@ -24,9 +24,13 @@ export class LoginPage implements OnInit {
   handleLogin(data: any) {
     this.loginService.sendLoginCredential(this.loginData).subscribe({
       next: async (result: any) => {
+        this.saveToken(result.JWT);
         this.router.navigateByUrl('login/main/profile');
       },
       error: (err) => (this.errMsg = err.error.event),
     });
+  }
+  saveToken(token: string): void {
+    localStorage.setItem('authToken', token); // Store token in storage
   }
 }

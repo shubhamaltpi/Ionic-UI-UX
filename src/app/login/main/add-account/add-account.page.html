@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-padding-start">Account Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollY]="false">
+  <form #accountDetail="ngForm" (ngSubmit)="createAccount(accountDetail)">
+    <ion-item>
+      <ion-input
+        type="number"
+        label="Account No"
+        label-placement="floating"
+        placeholder="Account No"
+        name="AccountNo"
+        [(ngModel)]="accountDetails.accountNumber"
+        #accNumber="ngModel"
+        required
+      ></ion-input>
+    </ion-item>
+    <ion-text
+      *ngIf="accNumber.invalid && (accNumber.dirty || accNumber.touched)"
+    >
+      <ion-text
+        class="errorInput"
+        color="danger"
+        *ngIf="accNumber.errors?.['required']"
+      >
+        Account Number is required.
+      </ion-text>
+    </ion-text>
+    <ion-item>
+      <ion-input
+        type="text"
+        label="Account Name"
+        labelPlacement="floating"
+        placeholder="Enter Account Name"
+        name="AccountName"
+        [(ngModel)]="accountDetails.accountName"
+        #accName="ngModel"
+        required
+      ></ion-input>
+    </ion-item>
+
+    <ion-text *ngIf="accName.invalid && (accName.dirty || accName.touched)">
+      <ion-text
+        class="errorInput"
+        color="danger"
+        *ngIf="accName.errors?.['required']"
+      >
+        Account Name is required.
+      </ion-text>
+    </ion-text>
+    <ion-item>
+      <ion-input
+        type="number"
+        label="IFSC"
+        label-placement="floating"
+        placeholder="IFSC"
+        name="ifsc"
+        [(ngModel)]="accountDetails.ifscCode"
+        #ifsc="ngModel"
+        required
+      ></ion-input>
+    </ion-item>
+
+    <ion-text *ngIf="ifsc.invalid && (ifsc.dirty || ifsc.touched)">
+      <ion-text
+        class="errorInput"
+        color="danger"
+        *ngIf="ifsc.errors?.['required']"
+      >
+        IFSC Code is required.
+      </ion-text>
+    </ion-text>
+    <div class="error-container ion-padding-top">
+      <ion-text class="errorInput" color="danger" *ngIf="errMsg">
+        {{errMsg}}
+      </ion-text>
+    </div>
+    <ion-button expand="block" type="submit" [disabled]="accountDetail.invalid"
+      >Submit</ion-button
+    >
+  </form>
+</ion-content>
