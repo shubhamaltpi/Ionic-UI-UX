@@ -24,6 +24,23 @@
     </div>
   </div>
 
+  <div class="container">
+    <div class="gold">
+      <ion-icon
+        name="logo-yen"
+        [routerLink]="'../../bussiness/gold'"
+      ></ion-icon>
+      <p>Gold</p>
+    </div>
+    <div class="silver">
+      <ion-icon
+        name="logo-yen"
+        [routerLink]="'../../bussiness/silver'"
+      ></ion-icon>
+      <p>Silver</p>
+    </div>
+  </div>
+
   <ion-card [id]="productDetail.id" *ngFor="let productDetail of demoOrderData">
     <ion-card-header>
       <ion-card-title>{{ productDetail.title }}</ion-card-title>
@@ -32,16 +49,16 @@
       <div class="product">
         <div class="product-info">
           <p>{{ productDetail.desc}}</p>
-          <h3 >{{ productDetail.price | currency : "USD" }}</h3>
+          <h3>{{ productDetail.price | currency : "USD" }}</h3>
         </div>
         <div class="product-img">
-          <img [src]="productDetail.productImg"   alt="product img" />
+          <img [src]="productDetail.productImg" alt="product img" />
           <button>Add</button>
         </div>
       </div>
     </ion-card-content>
-    
-      <!-- <ion-modal
+
+    <!-- <ion-modal
         #modal
         [trigger]="productDetail.id"
         [canDismiss]="canDismiss"
@@ -137,6 +154,5 @@
           </ion-footer>
         </ng-template>
       </ion-modal> -->
-    
   </ion-card>
 </ion-content>

@@ -177,4 +177,33 @@
       }
     }
   }
+
+  .container {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .gold,
+  .silver {
+    text-align: center;
+  }
+  
+  .gold ion-icon,
+  .silver ion-icon {
+    font-size: 2rem; 
+    border-radius: 50%; 
+    background-color: gold; 
+    color: white; 
+    padding: 10px; 
+  }
+  
+  .silver ion-icon {
+    background-color: silver;
+  }
+  
+  .gold p,
+  .silver p {
+    margin-top: 10px; 
+  }
+  
   

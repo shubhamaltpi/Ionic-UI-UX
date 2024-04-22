@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from './service/login.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -14,12 +15,12 @@ export class LoginPage implements OnInit {
     password: '',
   };
 
-  constructor(private loginService: LoginService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
 
   handleLogin(data: any) {
-    this.loginService.sendLoginCredential(this.loginData).subscribe({
+    this.authService.login(this.loginData).subscribe({
       next: async (result: any) => {
         this.saveToken(result.JWT);
         this.router.navigateByUrl('login/main/profile');
