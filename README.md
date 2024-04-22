@@ -451,6 +451,14 @@ body
 
 #### gold silver sell api
 ```
+/user/goldsilver/gSSell
+```
+body should be
+```
+{
+    "metalType":"SILVER/GOLD/SIP(SIP NOT Activated now)", "quantity":"0.5"
+}
+
 ```
 
 #### 
