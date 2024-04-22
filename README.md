@@ -113,9 +113,10 @@ accountNumber,
 # buy / sell 
 #### details of user 
 ```
-/user/party/data
+/user/party/data ? dataType=
 
 ```
+dataTpe should be { bank, his}
 ```
 {
     "event": "Succes",
