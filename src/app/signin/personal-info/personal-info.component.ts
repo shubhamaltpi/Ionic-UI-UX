@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { API_ENDPOINT, GeoLocationAPIKEY } from 'src/app/appConfig/appConfig'
+import { GeoLocationAPIKEY } from 'src/app/appConfig/appConfig'
 import { HelperService } from 'src/app/services/helper/helper.service';
+import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
 
 @Component({
   selector: 'app-personal-info',
@@ -55,7 +56,7 @@ export class PersonalInfoComponent implements OnInit {
   ]
   cityPage = 1
   cityName: string = ''
-  constructor(@Inject(GeoLocationAPIKEY) public API_KEY: string, private router: Router, private http: HttpClient, private helperService: HelperService) { }
+  constructor(@Inject(GeoLocationAPIKEY) public API_KEY: string, private localStorage: LocalStorageService, private router: Router, private http: HttpClient, private helperService: HelperService) { }
 
   ngOnInit(): void {
     const data = JSON.parse(localStorage.getItem('loc'))
@@ -115,14 +116,14 @@ export class PersonalInfoComponent implements OnInit {
     } else if (element === 'state') {
       this.fetchStates(name, this.statePage)
     }
-
   }
 
-  handlePersonalInfo() {
+handlePersonalInfo() {
     this.personalData.Name = this.firstName + this.lastName
     console.log(this.personalData);
 
-    localStorage.setItem('signup', JSON.stringify(this.personalData))
+    // localStorage.setItem('signup', JSON.stringify(this.personalData))
+    this.localStorage.setState('signup', JSON.stringify(this.personalData))
     this.router.navigate(['signin/selfie'])
   }
 

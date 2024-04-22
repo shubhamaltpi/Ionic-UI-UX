@@ -13,7 +13,7 @@ export class LocalStorageService {
   };
 
   async getState(key: string) {
-    await Preferences.get({ key })
+    return await Preferences.get({ key })
   }
 
   async removeState(key: string) {

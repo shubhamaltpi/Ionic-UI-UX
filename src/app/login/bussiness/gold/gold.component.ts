@@ -18,15 +18,22 @@ export class GoldComponent implements OnInit {
     this.fetchGold()
   }
 
-
   async fetchGold() {
-    this.httpClient.get(`http://192.168.1.18/getrate`).subscribe((res: any) => {
+    this.httpClient.get(`${this.endpoint}/getrate`).subscribe((res: any) => {
       if (res.statusCode == 200) {
         this.data = res.result.data
       } else {
         console.log('Error: ', res);
       }
     })
+  }
+
+  handleBuying() {
+    this.router.navigateByUrl('login/bussiness/buy?type=gold')
+  }
+
+  handleSell() {
+    this.router.navigateByUrl('login/bussiness/buy?type=gold')
   }
 
   handleBackBtn() {

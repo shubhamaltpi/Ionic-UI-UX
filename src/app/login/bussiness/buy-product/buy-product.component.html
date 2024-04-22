@@ -1,0 +1,47 @@
+<ion-content>
+  <div class="wrapper">
+    <div class="actions">
+      <ion-button
+        fill="clear"
+        [routerLink]="pageType === 'gold' ? '../gold' : '../silver'"
+        ><ion-icon
+          name="chevron-back-outline"
+          size="large"
+          class="back-btn"
+        ></ion-icon
+      ></ion-button>
+      <ion-button fill="clear"
+        ><ion-icon
+          name="ellipsis-vertical-outline"
+          size="large"
+          class="setting-btn"
+        ></ion-icon
+      ></ion-button>
+    </div>
+    <div class="bg-img">
+      <img src="../../../../assets/images/embrodary.avif" alt="" />
+    </div>
+
+    <div class="info">
+      <ion-avatar>
+        <ion-img
+          src="https://imgs.search.brave.com/X8mBoZ_q0xqE6vXXo3nP4-qC0iDDsmNeN7PdYh183Rs/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzQ3LzUz/LzU5LzQ3NTM1OTYw/ZDZiNjU1YmIzZGEz/YmU2NDA0NTNiNzY0/LmpwZw"
+        ></ion-img>
+      </ion-avatar>
+      <h3>Buying From</h3>
+      <p>99.99% pure 24k gold</p>
+
+      <div class="gold-amount">
+        <ion-input
+          placeholder="0"
+          type="number"
+          [value]="quantity"
+          [(ngModel)]="quantity"
+        />
+      </div>
+      <div class="bottom-action">
+        <ion-button expand="full" (click)="handleBuy()">Buy</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

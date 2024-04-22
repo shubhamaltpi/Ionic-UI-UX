@@ -10,10 +10,10 @@ export class AuthService {
   constructor(@Inject(API_ENDPOINT) public apiEndpoint: string, private httpClient: HttpClient) { }
 
   signin(data: any) {
-    this.httpClient.post(`${this.apiEndpoint}/subadmin/userOnboard`, data)
+    return this.httpClient.post(`${this.apiEndpoint}/subadmin/userOnboard`, data)
   }
 
   login(data: any) {
-    this.httpClient.post(`${this.apiEndpoint}`, data)
+    return this.httpClient.post(`${this.apiEndpoint}`, data)
   }
 }

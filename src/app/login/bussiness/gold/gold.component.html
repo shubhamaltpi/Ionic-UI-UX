@@ -35,7 +35,7 @@
 
       <div class="header-footer">
         <h1>
-          <span class="rupee-icon">₹</span>{{ data.rates.gBuy }}/<span
+          <span class="rupee-icon">₹</span>{{ data?.rates.gBuy }}/<span
             class="mg"
             >mg</span
           >
@@ -132,8 +132,8 @@
   </div>
 
   <div class="actions">
-    <ion-button shape="round">Buy</ion-button>
-    <ion-button shape="round">Sell</ion-button>
+    <ion-button shape="round" (click)="handleBuying()">Buy</ion-button>
+    <ion-button shape="round" (click)="handleSell()">Sell</ion-button>
     <ion-button shape="round">Delivery</ion-button>
   </div>
 </ion-content>
