@@ -25,8 +25,10 @@ export class BuyProductComponent implements OnInit {
 
   handleBuy() {
     console.log(this.pageType, this.quantity)
-    this.http.post(`${this.apiEndpoint}/user/goldsilver/gSBuy`, { metalType: this.pageType.toUpperCase(), quantity: this.quantity }, { headers: { 'Authorization': 'Bearer ' + this.token } }).subscribe((res: any) => {
-      console.log(res);
+    this.http.post(`${this.apiEndpoint}/user/goldsilver/gSBuy`, { metalType: this.pageType.toUpperCase(), quantity: this.quantity }, { headers: { 'Authorization': this.token } }).subscribe((res: any) => {
+      if (res.event === 'sucess') {
+        this.router.navigate(['../'])
+      }
     })
   }
 }

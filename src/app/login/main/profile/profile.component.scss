@@ -14,6 +14,7 @@ ion-title {
   height: fit-content;
   display: flex;
   gap: 1rem;
+  margin-bottom: 1rem;
 
   ion-avatar {
     height: 70%;
@@ -33,6 +34,21 @@ ion-title {
       margin-bottom: 0.5rem;
       font-size: 1.2rem;
       font-weight: 600;
+    }
+
+    .rate {
+      margin-bottom: .5rem;
+    }
+
+    .balance {
+      p {
+        span {
+          font-weight: 600;
+        }
+      }
+      display: flex;
+      align-items: center;
+      gap: 1rem;
     }
   }
 }
@@ -172,6 +188,20 @@ ion-title {
     }
   }
 }
-.account{
-  margin: 4rem;
+.account {
+  margin: 2rem 0;
+  padding: 0 .5rem;
+  background-color: rgb(228, 228, 228);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  ion-button {
+    --background: teal;
+    border-radius: 1rem;
+
+    p {
+      margin-left: .5rem;
+    }
+  }
 }

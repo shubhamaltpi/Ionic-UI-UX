@@ -16,7 +16,10 @@ export class AddAccountPage implements OnInit {
   errMsg: any;
   constructor(private addAccount: AccountService, private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('ADD ACCOUNT');
+    
+  }
 
   createAccount(data) {
     this.addAccount.accountCreate(this.accountDetails).subscribe({

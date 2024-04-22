@@ -23,10 +23,14 @@
 
     <div class="ratings">
       <ion-text>Prashant Sawant</ion-text>
-      <div>
+      <div class="rate">
         <ion-icon name="star"></ion-icon>
         <span>4.0</span>
         <ion-icon name="help-circle-outline"></ion-icon>
+      </div>
+      <div class="balance">
+        <p><span>Gold: </span>{{ goldBalance }} mg</p>
+        <p><span>Silver: </span>{{ silverBalance }} mg</p>
       </div>
     </div>
   </div>
@@ -57,11 +61,19 @@
     </ion-button>
   </div>
 
-  <div class="account">
+  <div class="account" *ngIf="bankStatus !== 'active'">
     <p>Add your bank account</p>
     <ion-button (click)="addAccount()">
       <ion-icon name="wallet-outline"></ion-icon>
       <p>Add Account</p>
+    </ion-button>
+  </div>
+
+  <div class="account" *ngIf="bankStatus === 'active'">
+    <p>Update your bank account</p>
+    <ion-button (click)="addAccount()">
+      <ion-icon name="wallet-outline"></ion-icon>
+      <p>Update Account</p>
     </ion-button>
   </div>
 
