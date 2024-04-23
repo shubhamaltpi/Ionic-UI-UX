@@ -12,5 +12,5 @@ export class SupportComponent  implements OnInit {
   ngOnInit() {
     console.log('support')
   }
-
+  segment='chat'
 }
