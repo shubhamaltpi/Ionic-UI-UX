@@ -21,7 +21,7 @@
           </ion-avatar>
           <div id="heading">
             <p class="heading">Gold Locker</p>
-            <p class="sub-heading">0.0 mg</p>
+            <p class="sub-heading">{{ goldBalance }} mg</p>
           </div>
         </div>
 
@@ -35,7 +35,7 @@
 
       <div class="header-footer">
         <h1>
-          <span class="rupee-icon">₹</span>{{ data.rates.gBuy }}/<span
+          <span class="rupee-icon">₹</span>{{ data?.rates?.gBuy }}/<span
             class="mg"
             >mg</span
           >
@@ -49,91 +49,30 @@
 
 <ion-content>
   <div class="content">
-    <ion-card>
+    <ion-card
+      *ngFor="let data of historyData"
+      [style.float]="data.type == 1 ? 'right' : 'left'"
+    >
       <ion-card-header>
-        <ion-card-subtitle>Sold 65.6mg of gold</ion-card-subtitle>
-        <ion-card-title>₹328.87</ion-card-title>
+        <ion-card-subtitle
+          >{{ data.type == 1 ? "Buy" : "Sell" }} {{ data.quantity }}mg of
+          gold</ion-card-subtitle
+        >
+        <ion-card-title>₹{{ data.totalAmount }}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <ion-icon name="checkmark-done-circle-sharp"></ion-icon>
-        <ion-text>Received • Aug 23, 2023</ion-text>
-      </ion-card-content>
-    </ion-card>
-    <ion-card>
-      <ion-card-header>
-        <ion-card-subtitle>Sold 65.6mg of gold</ion-card-subtitle>
-        <ion-card-title>₹328.87</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-icon name="checkmark-done-circle-sharp"></ion-icon>
-        <ion-text>Received • Aug 23, 2023</ion-text>
-      </ion-card-content>
-    </ion-card>
-    <ion-card>
-      <ion-card-header>
-        <ion-card-subtitle>Sold 65.6mg of gold</ion-card-subtitle>
-        <ion-card-title>₹328.87</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-icon name="checkmark-done-circle-sharp"></ion-icon>
-        <ion-text>Received • Aug 23, 2023</ion-text>
-      </ion-card-content>
-    </ion-card>
-    <ion-card>
-      <ion-card-header>
-        <ion-card-subtitle>Sold 65.6mg of gold</ion-card-subtitle>
-        <ion-card-title>₹328.87</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-icon name="checkmark-done-circle-sharp"></ion-icon>
-        <ion-text>Received • Aug 23, 2023</ion-text>
-      </ion-card-content>
-    </ion-card>
-    <ion-card>
-      <ion-card-header>
-        <ion-card-subtitle>Sold 65.6mg of gold</ion-card-subtitle>
-        <ion-card-title>₹328.87</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-icon name="checkmark-done-circle-sharp"></ion-icon>
-        <ion-text>Received • Aug 23, 2023</ion-text>
-      </ion-card-content>
-    </ion-card>
-    <ion-card>
-      <ion-card-header>
-        <ion-card-subtitle>Sold 65.6mg of gold</ion-card-subtitle>
-        <ion-card-title>₹328.87</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-icon name="checkmark-done-circle-sharp"></ion-icon>
-        <ion-text>Received • Aug 23, 2023</ion-text>
-      </ion-card-content>
-    </ion-card>
-    <ion-card>
-      <ion-card-header>
-        <ion-card-subtitle>Sold 65.6mg of gold</ion-card-subtitle>
-        <ion-card-title>₹328.87</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-icon name="checkmark-done-circle-sharp"></ion-icon>
-        <ion-text>Received • Aug 23, 2023</ion-text>
-      </ion-card-content>
-    </ion-card>
-    <ion-card>
-      <ion-card-header>
-        <ion-card-subtitle>Sold 65.6mg of gold</ion-card-subtitle>
-        <ion-card-title>₹328.87</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-icon name="checkmark-done-circle-sharp"></ion-icon>
-        <ion-text>Received • Aug 23, 2023</ion-text>
+        <p>{{ data.userName }}</p>
+        <div class="date">
+          <ion-icon name="checkmark-done-circle-sharp"></ion-icon>
+          <ion-text>Received • {{ data.createdAt }}</ion-text>
+        </div>
       </ion-card-content>
     </ion-card>
   </div>
 
   <div class="actions">
-    <ion-button shape="round">Buy</ion-button>
-    <ion-button shape="round">Sell</ion-button>
+    <ion-button shape="round" (click)="handleBuying()">Buy</ion-button>
+    <ion-button shape="round" (click)="handleSell()">Sell</ion-button>
     <ion-button shape="round">Delivery</ion-button>
   </div>
 </ion-content>

@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { API_ENDPOINT } from 'src/app/appConfig/appConfig';
+import { BussinessService } from 'src/app/services/bussiness/bussiness.service';
+import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
 
 @Component({
   selector: 'app-gold',
@@ -9,27 +9,77 @@ import { API_ENDPOINT } from 'src/app/appConfig/appConfig';
   styleUrls: ['./gold.component.scss'],
 })
 export class GoldComponent implements OnInit {
-  data: any
+  data: any;
+  historyData: any[] = [];
+  goldBalance: any;
 
-  constructor(@Inject(API_ENDPOINT) public endpoint: string, private router: Router, private httpClient: HttpClient) { }
+  constructor(
+    private localStorage: LocalStorageService,
+    private router: Router,
+    private bussinessService: BussinessService
+  ) {}
 
-  ngOnInit() {
-    console.log('Gold Page');
-    this.fetchGold()
+  async ngOnInit() {
+    this.fetchGold();
+    const token = await this.localStorage.getState('token');
+    this.fetchGoldTxnHistory(token.value);
+    this.fetchBalance(token.value);
   }
 
-
   async fetchGold() {
-    this.httpClient.get(`http://192.168.1.18/getrate`).subscribe((res: any) => {
+    this.bussinessService.getRate().subscribe((res: any) => {
       if (res.statusCode == 200) {
-        this.data = res.result.data
+        this.data = res.result.data;
       } else {
         console.log('Error: ', res);
       }
-    })
+    });
+  }
+
+  async fetchGoldTxnHistory(token: string) {
+    this.bussinessService.getHistory('his', token).subscribe((res: any) => {
+      console.log(res);
+
+      if (res.event === 'Succes') {
+        this.historyData = res.hist
+          .filter((history) => history.metalType === 'gold')
+          .map((history) => {
+            return {
+              id: history.id,
+              type: history.Type,
+              invoiceNumber: history.invoiceNumber,
+              merchantTransactionId: history.merchantTransactionId,
+              quantity: history.quantity,
+              rate: history.rate,
+              totalAmount: history.totalAmount,
+              userName: history.userName,
+              createdAt: new Date(history.createdAt).toLocaleDateString(
+                'en-us',
+                { year: 'numeric', month: 'short', day: 'numeric' }
+              ),
+            };
+          });
+      } else {
+        console.log('Error in fetching history');
+      }
+    });
+  }
+
+  async fetchBalance(token: string) {
+    this.bussinessService
+      .getHistory('', token)
+      .subscribe((res: any) => (this.goldBalance = res.gBalance));
+  }
+
+  handleBuying() {
+    this.router.navigateByUrl('login/bussiness/buy?type=gold');
+  }
+
+  handleSell() {
+    this.router.navigateByUrl('login/bussiness/sell?type=gold');
   }
 
   handleBackBtn() {
-    this.router.navigateByUrl('login/main/order')
+    this.router.navigateByUrl('login/main/orders');
   }
 }

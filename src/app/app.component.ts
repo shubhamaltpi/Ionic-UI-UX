@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
-import { Geolocation } from '@capacitor/geolocation'
-
+import { Geolocation } from '@capacitor/geolocation';
 
 @Component({
   selector: 'app-root',
@@ -9,24 +8,31 @@ import { Geolocation } from '@capacitor/geolocation'
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  ngOnInit() {
-    this.requestPermission()
+  async ngOnInit() {
+    await this.requestPermission();
   }
 
   async requestPermission() {
-    const havePermission = await Geolocation.checkPermissions()
+    const havePermission = await Geolocation.checkPermissions();
+    console.log(havePermission);
+
     if (havePermission.location == 'granted') {
-      const { latitude, longitude } = await this.getCoordinates()
-      localStorage.setItem('loc', JSON.stringify({ lat: latitude, lng: longitude }))
+      const { latitude, longitude } = await this.getCoordinates();
+      localStorage.setItem(
+        'loc',
+        JSON.stringify({ lat: latitude, lng: longitude })
+      );
     } else {
-      await Geolocation.requestPermissions()
+      await Geolocation.requestPermissions();
     }
   }
 
   async getCoordinates() {
-    const { coords: { latitude, longitude } } = await Geolocation.getCurrentPosition();
-    return { latitude, longitude }
+    const {
+      coords: { latitude, longitude },
+    } = await Geolocation.getCurrentPosition();
+    return { latitude, longitude };
   }
 }

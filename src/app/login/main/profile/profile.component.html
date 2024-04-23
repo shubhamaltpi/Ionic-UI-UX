@@ -1,6 +1,6 @@
 <ion-header class="ion-no-border" mode="md">
   <ion-toolbar>
-    <ion-title class="ion-padding-start">Orders</ion-title>
+    <ion-title class="ion-padding-start">Profile</ion-title>
     <ion-buttons slot="end">
       <ion-button [routerLink]="'../../setting'">
         <ion-icon name="settings-outline" size="large"></ion-icon>
@@ -8,8 +8,8 @@
       <ion-button>
         <ion-icon name="notifications-outline" size="large"></ion-icon>
       </ion-button>
-      <ion-button>
-        <ion-icon name="help-circle-outline" size="large"></ion-icon>
+      <ion-button (click)="handleLogout()">
+        <ion-icon name="exit-outline" size="large"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -23,15 +23,18 @@
 
     <div class="ratings">
       <ion-text>Prashant Sawant</ion-text>
-      <div>
-        <ion-icon name="star"></ion-icon>
+      <div class="rate">
         <span>4.0</span>
         <ion-icon name="help-circle-outline"></ion-icon>
+      </div>
+      <div class="balance">
+        <p><span>Gold: </span>{{ goldBalance }} mg</p>
+        <p><span>Silver: </span>{{ silverBalance }} mg</p>
       </div>
     </div>
   </div>
 
-  <div class="up-btn">
+  <!-- <div class="up-btn">
     <ion-button>
       <ion-icon name="camera-outline"></ion-icon>
       <p>Selfie</p>
@@ -40,7 +43,7 @@
       <ion-icon name="gift-outline"></ion-icon><br />
       <p>Bonus & Rewards</p>
     </ion-button>
-  </div>
+  </div> -->
 
   <div class="down-btn align">
     <ion-button>
@@ -58,14 +61,23 @@
   </div>
 
   <div class="account">
-    <p>Add your bank account</p>
-    <ion-button (click)="addAccount()">
+    <div class="info">
+      <!-- <h4><span>Bank Name:- </span>{{ bankDetail?.bankName }}</h4> -->
+      <p><span>Bank Status:- </span>{{ bankDetail?.status }}</p>
+      <p><span>Account No:- </span>{{ bankDetail?.accountNumber }}</p>
+      <p><span>IFSC:- </span>{{ bankDetail?.ifscCode }}</p>
+    </div>
+    <ion-button (click)="addAccount()" *ngIf="bankDetail?.status !== 'active'">
       <ion-icon name="wallet-outline"></ion-icon>
       <p>Add Account</p>
     </ion-button>
+    <ion-button (click)="addAccount()" *ngIf="bankDetail?.status === 'active'">
+      <ion-icon name="wallet-outline"></ion-icon>
+      <p>Update Account</p>
+    </ion-button>
   </div>
 
-  <ion-item lines="none" class="list">
+  <!-- <ion-item lines="none" class="list">
     <ion-label>Completed orders</ion-label>
     <ion-text slot="end">0</ion-text>
   </ion-item>
@@ -76,7 +88,7 @@
   <ion-item lines="none" class="list">
     <ion-label>Abandoned orders</ion-label>
     <ion-text slot="end">0</ion-text>
-  </ion-item>
+  </ion-item> -->
 
   <ion-card class="refer">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
