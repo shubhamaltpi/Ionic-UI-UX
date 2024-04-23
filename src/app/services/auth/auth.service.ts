@@ -3,17 +3,19 @@ import { Inject, Injectable } from '@angular/core';
 import { API_ENDPOINT } from 'src/app/appConfig/appConfig';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
-  constructor(@Inject(API_ENDPOINT) public apiEndpoint: string, private httpClient: HttpClient) { }
+  constructor(
+    @Inject(API_ENDPOINT) public apiEndpoint: string,
+    private httpClient: HttpClient
+  ) {}
 
   signin(data: any) {
     return this.httpClient.post(`${this.apiEndpoint}/subadmin/userOnboard`, data)
   }
 
   login(data: any) {
-    return this.httpClient.post(`${this.apiEndpoint}`, data)
+    return this.httpClient.post(`${this.apiEndpoint}/user/login`, data)
   }
 }
