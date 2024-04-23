@@ -37,7 +37,7 @@ ion-title {
     }
 
     .rate {
-      margin-bottom: .5rem;
+      margin-bottom: 0.5rem;
     }
 
     .balance {
@@ -190,18 +190,30 @@ ion-title {
 }
 .account {
   margin: 2rem 0;
-  padding: 0 .5rem;
-  background-color: rgb(228, 228, 228);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  padding: 0.7rem;
+  background-color: #f0ffff;
+
+  .info {
+    h4 {
+      padding: 0;
+      margin: 0;
+    }
+    span {
+      font-weight: 600;
+    }
+
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 
   ion-button {
     --background: teal;
     border-radius: 1rem;
 
     p {
-      margin-left: .5rem;
+      margin-left: 0.5rem;
     }
   }
 }

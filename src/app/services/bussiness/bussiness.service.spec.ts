@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GoldService } from './gold.service';
+import { BussinessService } from './bussiness.service';
 
-describe('GoldService', () => {
-  let service: GoldService;
+describe('BussinessService', () => {
+  let service: BussinessService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(GoldService);
+    service = TestBed.inject(BussinessService);
   });
 
   it('should be created', () => {

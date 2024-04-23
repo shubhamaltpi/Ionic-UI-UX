@@ -35,7 +35,7 @@
 
       <div class="header-footer">
         <h1>
-          <span class="rupee-icon">₹</span>{{ data?.rates.gBuy }}/<span
+          <span class="rupee-icon">₹</span>{{ data?.rates?.gBuy }}/<span
             class="mg"
             >mg</span
           >
@@ -49,10 +49,14 @@
 
 <ion-content>
   <div class="content">
-    <ion-card *ngFor="let data of historyData">
+    <ion-card
+      *ngFor="let data of historyData"
+      [style.float]="data.type == 1 ? 'right' : 'left'"
+    >
       <ion-card-header>
         <ion-card-subtitle
-          >Sold {{ data.quantity }}mg of gold</ion-card-subtitle
+          >{{ data.type == 1 ? "Buy" : "Sell" }} {{ data.quantity }}mg of
+          gold</ion-card-subtitle
         >
         <ion-card-title>₹{{ data.totalAmount }}</ion-card-title>
       </ion-card-header>

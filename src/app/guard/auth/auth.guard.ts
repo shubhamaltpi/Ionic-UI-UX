@@ -1,4 +1,4 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   CanActivate,
@@ -12,8 +12,7 @@ import { LocalStorageService } from 'src/app/services/local-storage/local-storag
 @Injectable({
   providedIn: 'root',
 })
-export class AuthenticationGuard implements CanActivate {
-  token: string = undefined;
+export class AuthGuard implements CanActivate {
   constructor(
     private localStorage: LocalStorageService,
     private router: Router
@@ -22,13 +21,12 @@ export class AuthenticationGuard implements CanActivate {
   async checkAuth() {
     const res = await this.localStorage.getState('token');
     if (res.value === null) {
-      this.router.navigateByUrl('/login');
-      return false;
-    } else {
       return true;
+    } else {
+      this.router.navigateByUrl('/login/main');
+      return false;
     }
   }
-
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot

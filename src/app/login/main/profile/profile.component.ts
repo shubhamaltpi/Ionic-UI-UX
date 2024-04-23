@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { GoldService } from 'src/app/services/gold/gold.service';
+import { BussinessService } from 'src/app/services/bussiness/bussiness.service';
 import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
 
 @Component({
@@ -9,31 +9,41 @@ import { LocalStorageService } from 'src/app/services/local-storage/local-storag
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
-  bankStatus: string
-  goldBalance: string
-  silverBalance: string
-  constructor(private router: Router, private localStorage: LocalStorageService, private goldService: GoldService) { }
+  bankDetail: any;
+  goldBalance: string;
+  silverBalance: string;
+  constructor(
+    private router: Router,
+    private localStorage: LocalStorageService,
+    private bussinessService: BussinessService
+  ) {}
 
   async ngOnInit() {
-    const token = await this.localStorage.getState('token')
-    this.fetchBankDetail(token.value)
+    const token = await this.localStorage.getState('token');
+    this.fetchBankDetail(token.value);
   }
 
   async fetchBankDetail(token: string) {
-    this.goldService.getGoldHistory('bank', token).subscribe((res: any) => {
+    this.bussinessService.getHistory('bank', token).subscribe((res: any) => {
       if (res.event) {
-        this.bankStatus = res.aCnumber.status
+        console.log(res.aCnumber);
+        this.bankDetail = res.aCnumber;
       }
-    })
+    });
 
-    this.goldService.getGoldHistory('', token).subscribe((res: any) => {
-      this.goldBalance = res.gBalance
-      this.silverBalance = res.sBalance
-    })
+    this.bussinessService.getHistory('', token).subscribe((res: any) => {
+      this.goldBalance = res.gBalance;
+      this.silverBalance = res.sBalance;
+    });
   }
 
   addAccount() {
     this.router.navigateByUrl('login/main/account');
     console.log('laha');
+  }
+
+  handleLogout() {
+    this.localStorage.removeState('token');
+    this.router.navigateByUrl('/login');
   }
 }
