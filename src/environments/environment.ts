@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   locationApiKey: 'pBESHXTkfifMlQDqsP1azFdEiezX2mIq',
-  urlEndPoint: 'http://192.168.1.2:4001'
+  urlEndPoint: 'http://192.168.1.35:4001'
 };
 
 /*
