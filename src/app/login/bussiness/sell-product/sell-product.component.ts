@@ -26,6 +26,7 @@ export class SellProductComponent implements OnInit {
   async ngOnInit() {
     const res = await this.localStorage.getState('token');
     this.token = res.value;
+    this.pageType = this.router.url.split('=')[1];
   }
 
   async showToast(msg: string) {
@@ -45,7 +46,11 @@ export class SellProductComponent implements OnInit {
       .subscribe((res: any) => {
         if (res.event === 'succes') {
           this.showToast('Success!');
-          this.router.navigateByUrl('login/main');
+          console.log(this.pageType);
+
+          this.pageType === 'gold'
+            ? this.router.navigateByUrl('login/bussiness/gold')
+            : this.router.navigateByUrl('login/bussiness/silver');
         } else {
           this.showToast('Failed Transaction!');
         }

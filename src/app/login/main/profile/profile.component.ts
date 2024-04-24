@@ -12,6 +12,7 @@ export class ProfileComponent implements OnInit {
   bankDetail: any;
   goldBalance: string;
   silverBalance: string;
+  userName: string;
   constructor(
     private router: Router,
     private localStorage: LocalStorageService,
@@ -34,6 +35,8 @@ export class ProfileComponent implements OnInit {
     this.bussinessService.getHistory('', token).subscribe((res: any) => {
       this.goldBalance = res.gBalance;
       this.silverBalance = res.sBalance;
+      this.userName = res.name;
+      console.log(res);
     });
   }
 
