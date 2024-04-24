@@ -15,21 +15,31 @@ export class SellProductComponent implements OnInit {
   pageType: any = '';
   quantity: any = '';
   token: any = '';
+  isDialogOpen: boolean = false;
+  headerMsg: string = ''
+  message: string = ''
+
+  public alertButtons = [{
+    text: 'Ok',
+    role: 'confirm',
+    handler: () => {
+      this.isDialogOpen = false
+      this.router.navigateByUrl(`login/bussiness/${this.pageType}`)
+
+    }
+  }]
 
   constructor(
     @Inject(API_ENDPOINT) private apiEndpoint: string,
     private localStorage: LocalStorageService,
     private http: HttpClient,
     private router: Router
-  ) {}
+  ) { }
 
   async ngOnInit() {
     const res = await this.localStorage.getState('token');
     this.token = res.value;
-  }
-
-  async showToast(msg: string) {
-    await Toast.show({ text: msg, position: 'top', duration: 'long' });
+    this.pageType = this.router.url.split('=')[1];
   }
 
   handleSell() {
@@ -42,12 +52,14 @@ export class SellProductComponent implements OnInit {
         },
         { headers: { Authorization: this.token } }
       )
-      .subscribe((res: any) => {
+      .subscribe(async (res: any) => {
+        this.isDialogOpen = true
         if (res.event === 'succes') {
-          this.showToast('Success!');
-          this.router.navigateByUrl('login/main');
+          this.headerMsg = 'Purchase Successfull 🎉'
+          this.message = `You have successfully purchased the ${this.pageType} you can check it in your profile.`
         } else {
-          this.showToast('Failed Transaction!');
+          this.headerMsg = 'Purchase Failed ❌'
+          this.message = 'Your purchased failed Your money will be back to your account!'
         }
       });
   }

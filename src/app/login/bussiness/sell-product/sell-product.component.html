@@ -45,3 +45,11 @@
     </div>
   </div>
 </ion-content>
+
+<ion-alert
+  [isOpen]="isDialogOpen"
+  [header]="headerMsg"
+  [message]="message"
+  [buttons]="alertButtons"
+  (didDismiss)="isDialogOpen = false"
+></ion-alert>

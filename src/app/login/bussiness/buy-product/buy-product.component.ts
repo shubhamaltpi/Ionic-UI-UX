@@ -18,6 +18,15 @@ export class BuyProductComponent implements OnInit {
   headerMsg: string = ''
   message: string = ''
 
+  public alertButtons = [
+    {
+      text: 'Ok', role: 'confirm', handler: () => {
+        this.isDialogOpen = false
+        this.router.navigateByUrl(`login/bussiness/${this.pageType}`)
+      }
+    }
+  ]
+
   constructor(
     @Inject(API_ENDPOINT) public apiEndpoint: string,
     private localStorage: LocalStorageService,
@@ -32,10 +41,6 @@ export class BuyProductComponent implements OnInit {
     this.pageType = this.router.url.split('=')[1];
   }
 
-  // async showToast(msg: string) {
-  //   await Toast.show({ text: msg, position: 'center', duration: 'long' });
-  // }
-
   handleBuy() {
     this.http
       .post(
@@ -43,28 +48,16 @@ export class BuyProductComponent implements OnInit {
         { metalType: this.pageType.toUpperCase(), quantity: this.quantity },
         { headers: { Authorization: this.token } }
       )
-      .subscribe((res: any) => {
+      .subscribe(async (res: any) => {
+        this.isDialogOpen = true
         if (res.event === 'sucess') {
-          // this.showToast('Purchased Successfully!');
           this.headerMsg = 'Purchase Successfull 🎉'
-          this.message = 'You have successfully purchased the gold you can check it in your profile.'
-          this.isDialogOpen = true
-          setTimeout(() => {
-            this.isDialogOpen = false
-            this.router.navigate(['../']);
-          }, 1500)
+          this.message = `You have successfully purchased the ${this.pageType} you can check it in your profile.`
         } else {
-          // this.showToast('Failed Transaction!');
+          this.isDialogOpen = true
           this.headerMsg = 'Purchase Failed ❌'
           this.message = 'Your purchased failed Your money will be back to your account!'
-          this.isDialogOpen = true
-          setTimeout(() => {
-            this.isDialogOpen = false
-            this.router.navigate(['../']);
-          }, 1500)
         }
       });
   }
-
-  alertButtons() { }
 }

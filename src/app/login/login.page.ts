@@ -15,8 +15,13 @@ export class LoginPage implements OnInit {
     email: '',
     password: '',
   };
+  newMessage: any;
 
-  constructor(private authService: AuthService, private localStorage: LocalStorageService, private router: Router) { }
+  constructor(
+    private authService: AuthService,
+    private localStorage: LocalStorageService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     console.log('Login');
@@ -25,8 +30,8 @@ export class LoginPage implements OnInit {
   handleLogin(data: any) {
     this.authService.login(this.loginData).subscribe({
       next: async (result: any) => {
-        this.localStorage.setState('token', result.JWT)
-        this.router.navigateByUrl('login/main/profile');
+        this.localStorage.setState('token', result.JWT);
+        this.router.navigateByUrl('login/main/orders');
       },
       error: (err) => (this.errMsg = err.error.event),
     });

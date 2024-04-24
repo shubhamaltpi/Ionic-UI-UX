@@ -1,3 +1,62 @@
-<p>
-  support works!
-</p>
+
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title>Customer Services</ion-title>
+    </ion-toolbar>
+    <ion-segment [scrollable]="true" value="call">
+      
+        <ion-segment value="chat" color="primary" mode="md">
+          <ion-segment-button value="status">
+            <ion-label>Status</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="chat">
+            <ion-label>Chat</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="call">
+            <ion-label>Call</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+    </ion-segment>
+  </ion-header>
+ <ion-content color="light">
+  <ion-list *ngIf="segment==='chat'">
+  
+      <ion-list-header class="sender"> 
+       <ion-label class="sender-text"> What is Your Question</ion-label>
+      </ion-list-header>
+   
+    
+      <ion-list-header class="reciever">
+        <ion-label  class="reciever-text"> This is Your Answer</ion-label>
+      </ion-list-header>
+
+      <ion-list-header class="sender"> 
+       <ion-label class="sender-text"> What is Your Question</ion-label>
+      </ion-list-header>
+   
+    
+      <ion-list-header class="reciever">
+        <ion-label  class="reciever-text"> This is Your Answer</ion-label>
+      </ion-list-header>
+    
+  </ion-list>
+ </ion-content>
+ <ion-footer>
+  <ion-toolbar>
+    <div class="msg">
+      <ion-icon name="chatbubble-ellipses-outline" color="primary"></ion-icon>
+      <input type="text" class="txt-msg" placeholder="Type Here">
+      <!-- <ion-button color="primary" size="medium">Send</ion-button> -->
+      <div class="send-btn">
+        <ion-icon name="send-outline" color="primary"></ion-icon>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-footer>
+
+
+
+

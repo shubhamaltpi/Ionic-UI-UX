@@ -2,8 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { GeoLocationAPIKEY } from 'src/app/appConfig/appConfig';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { HelperService } from 'src/app/services/helper/helper.service';
 import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
+import { Toast } from '@capacitor/toast';
 
 @Component({
   selector: 'app-personal-info',
@@ -49,19 +51,20 @@ export class PersonalInfoComponent implements OnInit {
     private localStorage: LocalStorageService,
     private router: Router,
     private http: HttpClient,
-    private helperService: HelperService
+    private helperService: HelperService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
-    const data = JSON.parse(localStorage.getItem('loc'));
-    this.getLocation(data).subscribe((res: any) => {
-      const data = res.response.features[8].properties;
-      
-      this.stateName = data.name;
-      // this.personalData.userPincode = data.postalcode
-      // this.state = data.region
-      this.country = data.country;
-    });
+    // const data = JSON.parse(localStorage.getItem('loc'));
+    // this.getLocation(data).subscribe((res: any) => {
+    //   const data = res.response.features[8].properties;
+
+    //   this.stateName = data.name;
+    //   // this.personalData.userPincode = data.postalcode
+    //   // this.state = data.region
+    //   this.country = data.country;
+    // });
 
     this.fetchStates(this.stateName, this.statePage);
     this.fetchCities(
@@ -122,13 +125,27 @@ export class PersonalInfoComponent implements OnInit {
     }
   }
 
+  async showToast(msg: string) {
+    await Toast.show({ text: msg, position: 'center', duration: 'long' });
+  }
+
   handlePersonalInfo() {
     this.personalData.Name = this.firstName + this.lastName;
     console.log(this.personalData);
 
     // localStorage.setItem('signup', JSON.stringify(this.personalData))
     this.localStorage.setState('signup', JSON.stringify(this.personalData));
-    this.router.navigate(['signin/selfie']);
+    // this.router.navigate(['signin/selfie']);
+    this.authService.signin(this.personalData).subscribe((res: any) => {
+      if (res.Event === 'success') {
+        this.showToast('Purchased Successfully!');
+        this.localStorage.removeState('signup');
+        this.router.navigateByUrl('/login');
+      } else {
+        console.log(`Error while onboarding user.`);
+        this.showToast('Failed Transaction!');
+      }
+    });
   }
 
   handleRetake() {
