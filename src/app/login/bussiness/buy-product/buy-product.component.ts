@@ -43,7 +43,10 @@ export class BuyProductComponent implements OnInit {
       .subscribe((res: any) => {
         if (res.event === 'sucess') {
           this.showToast('Purchased Successfully!');
-          this.router.navigate(['../']);
+
+          this.pageType === 'gold'
+            ? this.router.navigateByUrl('login/bussiness/gold')
+            : this.router.navigateByUrl('login/bussiness/silver');
         } else {
           this.showToast('Failed Transaction!');
         }

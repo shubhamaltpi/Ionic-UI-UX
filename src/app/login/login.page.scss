@@ -57,3 +57,16 @@ width: 80%;
   text-align: center;
   padding-top: -16px;
 }
+
+.signup-link{
+  text-align: center;
+}
+
+.submit-btn{
+  display: flex;
+  justify-content: center;
+
+  ion-button{
+    width: 50%;
+  }
+}
