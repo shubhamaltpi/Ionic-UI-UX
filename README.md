@@ -462,6 +462,18 @@ body should be
 
 ```
 
+### user Bank Update 
+API
+```
+/user/party/userBankUpdate
+```
+--body 
+```
+"accountNumber":"123456789012",
+    "accountName":"Shubham",
+    "ifscCode":"MAHB0001756"
+```
+
 #### product order on adre
 Backed Api Should be integrate with aug
 ```
