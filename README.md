@@ -116,7 +116,7 @@ accountNumber,
 /user/party/data ? dataType=
 
 ```
-dataTpe should be { bank, his}
+dataTpe should be { bank, his} bank de, his -> his of gold and silver ,and default you will get userdata 
 ```
 {
     "event": "Succes",
