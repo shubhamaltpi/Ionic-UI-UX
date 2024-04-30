@@ -479,3 +479,19 @@ API
 Backed Api Should be integrate with aug
 ```
 ```
+
+## integration of gold with our App
+Login by VPA please send VPA as params 
+```
+```
+** if user have buy gold with this app we will dont need signup
+if not then just singup the user 
+***
+#### buy gold/ silver by amount 
+amount should be send in parameter 
+
+### we are not enabling to sell gold through our CCSA App
+user will get creadiantial to login throw the gold app and he will able to see his histroy 
+```
+```
+
