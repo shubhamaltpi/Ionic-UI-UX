@@ -32,6 +32,17 @@ These steps assume that the Ionic app you're working with follows the typical st
 
 Thank you !
 ## Backend Api 
+####Login Api
+getlogin 
+```
+/user/login?UPI=
+
+```
+```
+body{
+ email, password
+}
+```
 Get States list
 ```
    getstates?count=100&name=ma&page=1
