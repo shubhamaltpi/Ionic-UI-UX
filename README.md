@@ -505,4 +505,4 @@ amount should be send in parameter
 user will get creadiantial to login throw the gold app and he will able to see his histroy 
 ```
 ```
-
+### new feature come in market 
