@@ -16,25 +16,30 @@ export class SellProductComponent implements OnInit {
   quantity: any = '';
   token: any = '';
   isDialogOpen: boolean = false;
-  headerMsg: string = ''
-  message: string = ''
+  headerMsg: string = '';
+  message: string = '';
 
-  public alertButtons = [{
-    text: 'Ok',
-    role: 'confirm',
-    handler: () => {
-      this.isDialogOpen = false
-      this.router.navigateByUrl(`login/bussiness/${this.pageType}`)
-
-    }
-  }]
+  public alertButtons = [
+    {
+      text: 'Ok',
+      role: 'confirm',
+      handler: () => {
+        this.isDialogOpen = false;
+        if (this.headerMsg == 'Transaction Failed') {
+          this.router.navigateByUrl(`login/main/account`);
+        } else {
+          this.router.navigateByUrl(`login/bussiness/${this.pageType}`);
+        }
+      },
+    },
+  ];
 
   constructor(
     @Inject(API_ENDPOINT) private apiEndpoint: string,
     private localStorage: LocalStorageService,
     private http: HttpClient,
     private router: Router
-  ) { }
+  ) {}
 
   async ngOnInit() {
     const res = await this.localStorage.getState('token');
@@ -43,6 +48,8 @@ export class SellProductComponent implements OnInit {
   }
 
   handleSell() {
+    console.log(this.token);
+
     this.http
       .post(
         `${this.apiEndpoint}/user/goldsilver/gSSell`,
@@ -50,17 +57,34 @@ export class SellProductComponent implements OnInit {
           metalType: this.pageType.toUpperCase(),
           quantity: this.quantity,
         },
-        { headers: { Authorization: this.token } }
-      )
-      .subscribe(async (res: any) => {
-        this.isDialogOpen = true
-        if (res.event === 'succes') {
-          this.headerMsg = 'Purchase Successfull 🎉'
-          this.message = `You have successfully purchased the ${this.pageType} you can check it in your profile.`
-        } else {
-          this.headerMsg = 'Purchase Failed ❌'
-          this.message = 'Your purchased failed Your money will be back to your account!'
+        {
+          headers: {
+            Authorization: this.token,
+            'Content-Type': 'application/json',
+          },
         }
+      )
+      .subscribe({
+        next: async (res: any) => {
+          this.isDialogOpen = true;
+          if (res.event === 'succes') {
+            this.headerMsg = 'Sold Successfull 🎉';
+            this.message = `You have successfully sold the ${this.pageType} you can check it in your profile.`;
+          }
+        },
+        error: (err) => {
+          this.isDialogOpen = true;
+          console.log(err, '**********');
+          if (err.error.msg == 'Bank Not Found') {
+            this.headerMsg = 'Transaction Failed';
+            this.message =
+              'Please add you bank account before doing transactions!';
+          } else {
+            this.headerMsg = 'Transaction Failed ❌';
+            this.message =
+              'Your transaction failed Your money will be back to your account!';
+          }
+        },
       });
   }
 }
