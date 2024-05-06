@@ -29,7 +29,7 @@ export class AddAccountPage implements OnInit {
     this.addAccount.accountCreate(this.accountDetails).subscribe({
       next: async (result: any) => {
         this.showToast('Purchased Successfully!');
-        this.router.navigateByUrl('../profile');
+        this.router.navigateByUrl('login/main/profile');
       },
       error: (err) => {
         (this.errMsg = err.message),

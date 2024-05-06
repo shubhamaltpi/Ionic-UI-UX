@@ -19,7 +19,7 @@ export class BussinessPage implements OnInit {
   }
 
   async fetchGold() {
-    this.httpClient.get('http://192.168.1.18:4001/getrate').subscribe((res: any) => {
+    this.httpClient.get('http://192.168.1.12:4001/getrate').subscribe((res: any) => {
       if (res.statusCode == 200) {
         this.data = res.result.data
       } else {
