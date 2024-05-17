@@ -481,3 +481,9 @@ user will get creadiantial to login throw the gold app and he will able to see h
 ```
 ```
 ### new feature come in market 
+
+### we are not enabling to sell gold through our CCSA App
+user will get creadiantial to login throw the gold app and he will able to see his histroy 
+```
+```
+### new feature come in market 
