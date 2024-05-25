@@ -135,28 +135,16 @@ dataTpe should be { bank, his} bank de, his -> his of gold and silver ,and defau
     "event": "Succes",
     "gBalance": "10.000",
     "sBalance": "11.5000",
-    "aCnumber": {
-        "id": 4,
-        "userBankId": "GXD8wVX2",
-        "uniqueId": "ahers287",
-        "bankId": "nul",
-        "bankName": "null",
-        "accountNumber": "662801255177",
-        "accountName": "Ramesh",
-        "ifscCode": "SBIN0BHAESE",
-        "status": "active",
-        "createdAt": "2024-04-19T08:00:55.000Z",
-        "updatedAt": "2024-04-19T08:00:55.000Z"
-    },
+   
     "hist": [
         {
-            "id": 1,
+           
             "quantity": "2.0000",
             "totalAmount": "15505.17",
             "preTaxAmount": "15053.56",
             "metalType": "gold",
             "rate": "7526.78",
-            "uniqueId": "ahers287",
+           
             "userName": "ShubhamAher",
             "merchantTransactionId": "d73eb0045ff648ed919b",
             "mobileNumber": "9067343773",
@@ -171,8 +159,7 @@ dataTpe should be { bank, his} bank de, his -> his of gold and silver ,and defau
             "referenceType": null,
             "referenceId": null,
             "Type": null,
-            "createdAt": "2024-04-19T07:15:22.000Z",
-            "updatedAt": "2024-04-19T07:15:22.000Z"
+           
         }
         ,
         {
@@ -182,7 +169,7 @@ dataTpe should be { bank, his} bank de, his -> his of gold and silver ,and defau
             "preTaxAmount": "91.00",
             "metalType": "silver",
             "rate": "91.00",
-            "uniqueId": "ahers287",
+           
             "userName": "ShubhamAher",
             "merchantTransactionId": "bc1b45ecf7934e9ea64ea1b7c",
             "mobileNumber": "9067343773",
@@ -194,20 +181,17 @@ dataTpe should be { bank, his} bank de, his -> his of gold and silver ,and defau
             "SGSTtaxPerc": "1.50",
             "SGSTtaxAmount": "1.37",
             "invoiceNumber": "SLP04254126",
-            "referenceType": null,
-            "referenceId": null,
-            "Type": null,
-            "createdAt": "2024-04-19T07:44:04.000Z",
-            "updatedAt": "2024-04-19T07:44:04.000Z"
+         
+          
         },
         {
-            "id": 6,
+         
             "quantity": "1.0000",
             "totalAmount": "93.70",
             "preTaxAmount": "90.97",
             "metalType": "silver",
             "rate": "90.97",
-            "uniqueId": "ahers287",
+           
             "userName": "ShubhamAher",
             "merchantTransactionId": "ahers287NaN",
             "mobileNumber": "9067343773",
@@ -219,15 +203,10 @@ dataTpe should be { bank, his} bank de, his -> his of gold and silver ,and defau
             "SGSTtaxPerc": "1.50",
             "SGSTtaxAmount": "1.36",
             "invoiceNumber": "SLP04254131",
-            "referenceType": null,
-            "referenceId": null,
-            "Type": null,
-            "createdAt": "2024-04-19T07:50:29.000Z",
-            "updatedAt": "2024-04-19T07:50:29.000Z"
+
         },
         
         {
-            "id": 8,
             "quantity": "1.0000",
             "totalAmount": "93.70",
             "preTaxAmount": "90.97",
@@ -245,20 +224,16 @@ dataTpe should be { bank, his} bank de, his -> his of gold and silver ,and defau
             "SGSTtaxPerc": "1.50",
             "SGSTtaxAmount": "1.36",
             "invoiceNumber": "SLP04254133",
-            "referenceType": null,
-            "referenceId": null,
-            "Type": null,
-            "createdAt": "2024-04-19T07:56:21.000Z",
-            "updatedAt": "2024-04-19T07:56:21.000Z"
+           
         },
         {
-            "id": 9,
+           
             "quantity": "1.0000",
             "totalAmount": "93.70",
             "preTaxAmount": "90.97",
             "metalType": "silver",
             "rate": "90.97",
-            "uniqueId": "ahers287",
+           
             "userName": "ShubhamAher",
             "merchantTransactionId": "ahers28781",
             "mobileNumber": "9067343773",
@@ -270,11 +245,6 @@ dataTpe should be { bank, his} bank de, his -> his of gold and silver ,and defau
             "SGSTtaxPerc": "1.50",
             "SGSTtaxAmount": "1.36",
             "invoiceNumber": "SLP04254134",
-            "referenceType": null,
-            "referenceId": null,
-            "Type": null,
-            "createdAt": "2024-04-19T07:56:25.000Z",
-            "updatedAt": "2024-04-19T07:56:25.000Z"
         },
        
         
