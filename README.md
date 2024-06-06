@@ -148,28 +148,7 @@ dataTpe should be { bank, his} bank de, his -> his of gold and silver ,and defau
            
         }
         ,
-        {
-            "id": 5,
-            "quantity": "1.0000",
-            "totalAmount": "93.73",
-            "preTaxAmount": "91.00",
-            "metalType": "silver",
-            "rate": "91.00",
-           
-            "userName": "ShubhamAher",
-            "merchantTransactionId": "bc1b45ecf7934e9ea64ea1b7c",
-            "mobileNumber": "9067343773",
-            "goldBalance": "10.0000",
-            "silverBalance": "5.0000",
-            "totalTaxAmount": "2.73",
-            "CGSTtaxPerc": "1.50",
-            "CGSTtaxAmount": "1.37",
-            "SGSTtaxPerc": "1.50",
-            "SGSTtaxAmount": "1.37",
-            "invoiceNumber": "SLP04254126",
-         
-          
-        },
+       
         {
          
             "quantity": "1.0000",
