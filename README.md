@@ -1,4 +1,4 @@
-# Ionic-UI-UX
+# Gold App
 To install and run an Ionic app locally from GitHub, you'll typically follow these steps:
 #### This is Gold App BackEnd ###
 
