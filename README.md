@@ -2,7 +2,7 @@
 To install and run an Ionic app locally from GitHub, you'll typically follow these steps:
 #### This is Gold App BackEnd ###
 
-1. **Clone the Repository**: First, clone the GitHub repository of the Ionic app to your local machine. You can do this using the `git clone` command. Navigate to the directory where you want to clone the repository and run:
+1. **Clone the Repository**: First, clone the GitHub repository of the Ionic app to your local machine. You can do this using the ``git clone`` command. Navigate to the directory where you want to clone the repository and run:
 2. 
 
    ```
@@ -27,7 +27,7 @@ To install and run an Ionic app locally from GitHub, you'll typically follow the
 
    This command will start a local development server and open the Ionic app in your default web browser.
 
-5. **View the App**: Once the server is up and running, you can view the Ionic app in your web browser by navigating to `http://localhost:8100` (by default, unless specified otherwise).
+5. **View the App**: Once the server is up and running, you can view the Ionic app in your web browser by navigating to ``http://localhost:8100`` (by default, unless specified otherwise).
 
 These steps assume that the Ionic app you're working with follows the typical structure and setup. If the repository contains any specific instructions or configurations, make sure to follow those as well. Additionally, ensure that you have Node.js and npm installed on your machine before proceeding with these steps.
 
