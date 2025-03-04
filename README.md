@@ -52,7 +52,7 @@ Get cities on the based on state
 ```
    getcities?stateId= &count=100&name=ma&page=1
    ```
-get rate of gold and silver
+get rate of gold and silver from  Backend 
 ```
    /getrate
    ```
