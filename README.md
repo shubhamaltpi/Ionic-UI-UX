@@ -6,7 +6,7 @@ To install and run an Ionic app locally from GitHub, you'll typically follow the
 2. 
 
    ```
-   git clone (https://github.com/YOUR_USERNAME/Ionic-UI-UX.git)
+   git clone (https://github.com/YOUR_USERNAMEs/Ionic-UI-UX.git)
    ```
 
    Replace `<YOUR_USERNAME>` with the actual URL of the GitHub repository.
